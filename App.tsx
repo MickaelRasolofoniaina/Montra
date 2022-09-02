@@ -1,20 +1,42 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { useEffect, useCallback } from 'react'; 
+import { useFonts } from 'expo-font';
+import * as SplashScreen from 'expo-splash-screen';
+
+import { Promo } from 'modules/onboarding/screens/Promo';
+import { SafeArea } from 'modules/shared/components/container/SafeArea';
 
 export default function App() {
+  
+  const [fontsLoaded] = useFonts({
+    'Inter-Black': require('./assets/fonts/inter/Inter-Black.ttf'),
+    'Inter-Medium': require('./assets/fonts/inter/Inter-Medium.ttf'),
+    'Inter-Regular': require('./assets/fonts/inter/Inter-Regular.ttf'),
+    'Inter-Bold': require('./assets/fonts/inter/Inter-Bold.ttf'),
+    'Inter-SemiBold': require('./assets/fonts/inter/Inter-SemiBold.ttf'),
+  });
+
+  const onLayoutRootView = useCallback(async () => {
+    if (fontsLoaded) {
+      await SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded]);
+
+  useEffect(() => {
+    async function prepare() {
+      await SplashScreen.preventAutoHideAsync();
+    }
+    
+    prepare();
+  }, []);
+
+  if (!fontsLoaded) {
+    return null;
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeArea onLayout={onLayoutRootView}>
+      <Promo/>
+    </SafeArea>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
