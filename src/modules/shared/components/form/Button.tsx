@@ -2,13 +2,13 @@ import { primaryColor, secondaryColor, Theme, white } from 'constants/Color';
 import { fontFamily, fontSize } from 'constants/Font';
 import { Stylable } from 'modules/shared/props/generic';
 import React from 'react';
-import { Text, StyleSheet, Pressable } from 'react-native';
+import { Text, StyleSheet, TouchableOpacity } from 'react-native';
 
 
 export interface ButtonProps extends Stylable {
   label: string;
   onPress: () => void;
-  theme: Theme;
+  theme?: Theme;
 }
 
 export const getStyle = (theme: Theme) => {
@@ -20,13 +20,13 @@ export const getStyle = (theme: Theme) => {
   }
 }
 
-export const Button: React.FC<ButtonProps> = ({ label, onPress, theme }) => {
+export const Button: React.FC<ButtonProps> = ({ label, onPress, theme = Theme.primary }) => {
   const styles = getStyle(theme);
 
   return (
-   <Pressable style={styles.container} onPress={onPress}>
-    <Text style={styles.label}>{label}</Text>
-   </Pressable>
+   <TouchableOpacity style={styles.container} onPress={onPress}>
+      <Text style={styles.label}>{label}</Text>
+   </TouchableOpacity>
   )
 } 
 
@@ -37,7 +37,6 @@ const primaryStyles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center' ,
     backgroundColor: primaryColor,
-    width: '100%',
     marginBottom: 16
   },
   label: {
@@ -54,7 +53,6 @@ const defaultStyles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center' ,
     backgroundColor: secondaryColor,
-    width: '100%',
     marginBottom: 16
   },
   label: {

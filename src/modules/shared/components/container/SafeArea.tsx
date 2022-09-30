@@ -1,20 +1,21 @@
 import React from 'react';
-import { StyleSheet, SafeAreaView, LayoutChangeEvent } from 'react-native';
+import { StyleSheet, SafeAreaView, LayoutChangeEvent, View } from 'react-native';
 import { ContainerProps } from '../../props/generic';
 
-export type SafeAreaProps = ContainerProps & { onLayout: (event: LayoutChangeEvent) => void}
+export type SafeAreaProps = ContainerProps & { onLayout?: (event: LayoutChangeEvent) => void}
 
 export const SafeArea: React.FC<SafeAreaProps> = ({children, onLayout}) => {
   return (
-    <SafeAreaView style={styles.container} onLayout={onLayout}>
-      {children}
+    <SafeAreaView onLayout={onLayout} style={{flex: 1}}>
+      <View style={styles.container} >
+        {children}
+      </View>
     </SafeAreaView>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    paddingHorizontal: 20
+    flex: 1
   }
 });

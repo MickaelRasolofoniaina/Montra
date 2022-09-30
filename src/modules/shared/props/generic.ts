@@ -1,9 +1,7 @@
 import React from "react";
-
-export interface ContainerProps {
-  children: React.ReactNode;
-}
-
 export interface Stylable {
   style?: any;
+}
+export interface ContainerProps extends Stylable {
+  children?: React.ReactNode;
 }

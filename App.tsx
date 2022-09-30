@@ -1,9 +1,9 @@
 import { useEffect, useCallback } from 'react'; 
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
+import { View } from 'react-native';
 
-import { Promo } from 'modules/onboarding/screens/Promo';
-import { SafeArea } from 'modules/shared/components/container/SafeArea';
+import ManageExpense from 'modules/expense/screens/ManageExpense';
 
 export default function App() {
   
@@ -34,9 +34,9 @@ export default function App() {
   }
 
   return (
-    <SafeArea onLayout={onLayoutRootView}>
-      <Promo/>
-    </SafeArea>
+    <View onLayout={onLayoutRootView} style={{flex: 1}}>
+      <ManageExpense/>
+    </View>
   );
 }
 

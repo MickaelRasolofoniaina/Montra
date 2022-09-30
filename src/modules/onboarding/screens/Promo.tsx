@@ -1,13 +1,13 @@
 import React from 'react';
-import { View, StyleSheet, Text } from 'react-native';
+import { View, StyleSheet, ScrollView } from 'react-native';
 import promo1 from 'assets/images/promo/promo-1.png';
 import promo2 from 'assets/images/promo/promo-2.png';
 import promo3 from 'assets/images/promo/promo-3.png';
 import { Carousel } from 'modules/shared/components/container/Carousel';
 import { PromoCard } from '../components/PromoCard';
-import { StickyFooter } from 'modules/shared/components/container/StickyFooter';
 import { Button } from 'modules/shared/components/form/Button';
 import { Theme } from 'constants/Color';
+import { StickyFooter } from 'modules/shared/components/container/StickyFooter';
 
 export const Promo: React.FC = () => {
   return (
@@ -24,7 +24,8 @@ export const Promo: React.FC = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-  },
+    justifyContent: 'space-between',
+  }
 });
 
 const CAROUSEL_ITEM = [{

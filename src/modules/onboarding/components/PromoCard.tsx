@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, Image, ImageSourcePropType } from 'react-native
 
 import { fontFamily, fontSize } from 'constants/Font';
 import { black, grey } from 'constants/Color';
+import { relativeToHeight } from 'constants/Layout';
 
 export interface PromoCardProps {
   illustrationSrc: ImageSourcePropType;
@@ -30,7 +31,7 @@ export const styles = StyleSheet.create({
     paddingTop: 32
   },
   illustration: {
-    height: 312,
+    height: relativeToHeight(40),
     width: 312,
     resizeMode: 'contain'
   },

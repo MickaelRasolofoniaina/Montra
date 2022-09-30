@@ -1,17 +1,20 @@
 import React from 'react';
-import { useState } from 'react';
-import { View, StyleSheet, FlatList, ViewToken } from 'react-native';
+import { useState, useRef } from 'react';
+import { View, StyleSheet, FlatList, ViewToken, Pressable } from 'react-native';
+
 import { addStyleWhen } from 'utils/Style';
 
 import { primaryColor, secondaryColor } from 'constants/Color';
 import { relativeToWidth, screenWidth } from 'constants/Layout';
+
+import { Stylable } from 'modules/shared/props/generic';
 
 export interface CarouselItem {
   id: string;
   view: React.ReactNode;
 }
 
-export interface CarouselProps {
+export interface CarouselProps extends Stylable {
   items: CarouselItem[];
 }
 
@@ -20,26 +23,40 @@ type props = {
   changed: ViewToken[];
 }
 
-export const Carousel: React.FC<CarouselProps> = ({items}) => {
+export const Carousel: React.FC<CarouselProps> = ({ items, style }) => {
 
+  const ref = useRef<FlatList>(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
   const onViewableItemsChanged = (info: props) => {
-      const { viewableItems } = info;
-      setActiveIndex(viewableItems[0].index || 0);
+    const { viewableItems } = info;
+    scrollTo(viewableItems[0].index || 0);
   }
 
-  const onViewRef = React.useCallback(onViewableItemsChanged, [])
+  const scrollTo = (index: number) => {
+    if(ref && ref.current) {
+      ref.current.scrollToIndex({
+        animated: true,
+        index
+      });
+      setActiveIndex(index);
+    }
+  }
+
+  const onViewRef = React.useCallback(onViewableItemsChanged, []);
   
-  const viewConfigRef = React.useRef({ viewAreaCoveragePercentThreshold: 50 })
+  const viewConfigRef = React.useRef({ viewAreaCoveragePercentThreshold: 50 });
 
   return (
-    <View>
+    <View style={style}>
       <FlatList
+        ref={ref}
         horizontal
+        decelerationRate='normal'
         showsHorizontalScrollIndicator={false}
         initialNumToRender={1}
         initialScrollIndex={0}
+        pagingEnabled
         snapToInterval={screenWidth}
         keyExtractor={item => item.id}
         data={items}
@@ -48,7 +65,7 @@ export const Carousel: React.FC<CarouselProps> = ({items}) => {
         viewabilityConfig={viewConfigRef.current}
       />
       <View style={styles.footer}>
-        {items.map((_, index) => <View key={index} style={[styles.dot, addStyleWhen(activeIndex === index, styles.dotActive)]} />)}
+        {items.map((_, index) => <Pressable onPress={() => scrollTo(index)} key={index}><View style={[styles.dot, addStyleWhen(activeIndex === index, styles.dotActive)]} /></Pressable>)}
       </View>
     </View>
   )
