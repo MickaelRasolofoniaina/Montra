@@ -14,3 +14,7 @@ export const addElevation = (elevation: number) => {
     elevation
   }
 }
+
+export const normalizeMeasure = (measure: number) => {
+  return measure * 8;
+}

@@ -3,7 +3,7 @@ import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import { View } from 'react-native';
 
-import ManageExpense from 'modules/expense/screens/ManageExpense';
+import { TabNavigation } from 'modules/shared/components/navigation/TabNavigation.';
 
 export default function App() {
   
@@ -35,7 +35,7 @@ export default function App() {
 
   return (
     <View onLayout={onLayoutRootView} style={{flex: 1}}>
-      <ManageExpense/>
+      <TabNavigation />
     </View>
   );
 }

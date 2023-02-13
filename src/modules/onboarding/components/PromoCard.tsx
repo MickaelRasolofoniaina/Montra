@@ -5,6 +5,8 @@ import { fontFamily, fontSize } from 'constants/Font';
 import { black, grey } from 'constants/Color';
 import { relativeToHeight } from 'constants/Layout';
 
+import { normalizeMeasure } from 'utils/Style';
+
 export interface PromoCardProps {
   illustrationSrc: ImageSourcePropType;
   title: string;
@@ -28,11 +30,11 @@ export const PromoCard:React.FC<PromoCardProps> = ({
 export const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
-    paddingTop: 32
+    paddingTop: normalizeMeasure(4)
   },
   illustration: {
-    height: relativeToHeight(40),
     width: 312,
+    height: relativeToHeight(40),
     resizeMode: 'contain'
   },
   title: {
@@ -41,7 +43,7 @@ export const styles = StyleSheet.create({
     textAlign: 'center',
     color: black,
     maxWidth: 277,
-    marginBottom: 17
+    marginBottom: normalizeMeasure(2)
   },
   description: {
     fontFamily: fontFamily.medium,
@@ -49,7 +51,7 @@ export const styles = StyleSheet.create({
     textAlign: 'center',
     color: grey,
     maxWidth: 277,
-    marginBottom: 32
+    marginBottom: normalizeMeasure(4)
   }
 });
 

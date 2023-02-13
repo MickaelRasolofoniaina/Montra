@@ -1,9 +1,12 @@
-import { primaryColor, secondaryColor, Theme, white } from 'constants/Color';
-import { fontFamily, fontSize } from 'constants/Font';
-import { Stylable } from 'modules/shared/props/generic';
 import React from 'react';
 import { Text, StyleSheet, TouchableOpacity } from 'react-native';
 
+import { primaryColor, secondaryColor, Theme, white } from 'constants/Color';
+import { fontFamily, fontSize } from 'constants/Font';
+
+import { normalizeMeasure } from 'utils/Style';
+
+import { Stylable } from 'modules/shared/props/generic';
 
 export interface ButtonProps extends Stylable {
   label: string;
@@ -32,28 +35,28 @@ export const Button: React.FC<ButtonProps> = ({ label, onPress, theme = Theme.pr
 
 const primaryStyles = StyleSheet.create({
   container: {
-    borderRadius: 16,
-    paddingVertical: 17,
     flexDirection: 'row',
     justifyContent: 'center' ,
     backgroundColor: primaryColor,
-    marginBottom: 16
+    borderRadius: normalizeMeasure(2),
+    paddingVertical: normalizeMeasure(2),
+    marginBottom: normalizeMeasure(2)
   },
   label: {
-    color: white,
     fontFamily: fontFamily.semiBold,
-    fontSize: fontSize.large
+    fontSize: fontSize.large,
+    color: white,
   },
 });
 
 const defaultStyles = StyleSheet.create({
   container: {
-    borderRadius: 16,
-    paddingVertical: 17,
     flexDirection: 'row',
     justifyContent: 'center' ,
     backgroundColor: secondaryColor,
-    marginBottom: 16
+    borderRadius: normalizeMeasure(2),
+    paddingVertical: normalizeMeasure(2),
+    marginBottom: normalizeMeasure(2)
   },
   label: {
     color: primaryColor,

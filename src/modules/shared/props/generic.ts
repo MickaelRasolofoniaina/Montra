@@ -5,3 +5,7 @@ export interface Stylable {
 export interface ContainerProps extends Stylable {
   children?: React.ReactNode;
 }
+
+export interface ScreenProps {
+  //navigation: Navi
+}

@@ -1,11 +1,14 @@
 import React, { useEffect } from 'react';
-import { View, StyleSheet} from 'react-native';
-import Animated, { Easing, useAnimatedStyle, useSharedValue, withSpring, withTiming } from 'react-native-reanimated';
+import { View, StyleSheet } from 'react-native';
+import Animated, { useAnimatedStyle, useSharedValue, withTiming, useAnimatedGestureHandler, runOnJS } from 'react-native-reanimated';
+import { PanGestureHandler } from 'react-native-gesture-handler';
 
 import { ContainerProps } from 'modules/shared/props/generic';
 
 import { purple } from 'constants/Color';
 import { relativeToHeight } from 'constants/Layout';
+
+import { normalizeMeasure } from 'utils/Style';
 
 import { Card } from './Card';
 import { Backdrop } from '../container/Backdrop';
@@ -22,37 +25,63 @@ export const BottomSheet: React.FC<BottomSheetProps> = ({
   visible, 
   children, 
   onClick,
-  minHeight = relativeToHeight(10),
-  middleHeight = relativeToHeight(50),
+  minHeight = relativeToHeight(30),
   maxHeight = relativeToHeight(90)
 }) => {
 
-  const height = useSharedValue(0);
+  const initialHeight = visible ? minHeight : 0;
+  const height = useSharedValue(initialHeight);
+
+  const close = () => {
+    onClick();
+  }
+
+  const panHandler = useAnimatedGestureHandler({
+    onStart: (_, ctx: {height: number}) => {
+      ctx.height = height.value;
+    },
+    onActive: (event, ctx: {height: number}) => {
+      const newHeight = ctx.height - event.translationY;
+      if(newHeight <= maxHeight) {
+        height.value = newHeight;
+      }
+    },
+    onEnd: (event) => {
+      const currentHeight = height.value;
+      if(currentHeight <= minHeight) {
+        height.value = 0;
+        runOnJS(close)();
+      }
+      else{
+       if(event.translationY < 0) {
+        height.value = maxHeight;
+       }
+       else {
+        height.value = minHeight;
+       }
+      }
+    },
+  });
 
   const rStyles = useAnimatedStyle(() => {
     return {
-      height: withTiming(height.value, {
-        duration: 200,
-        easing: Easing.out(Easing.exp)
-      }),
+      height: withTiming(height.value)
     }
   });
-
-  useEffect(() => {
-    height.value = visible ? minHeight : 0;
-  }, [visible]);
   
   return (
     <>
       <Backdrop onClick={onClick} visible={visible}/>
-      <Animated.View style={[styles.container, rStyles]}>
-        <Card style={[styles.card, {flex: 1}]}>
-          <View style={styles.header}>
-            <View style={[styles.headerBtn, { height: visible ? 4 : 0 }]} />
-          </View>
-          {children}
-        </Card>
-      </Animated.View>
+      <PanGestureHandler onGestureEvent={panHandler}>
+        <Animated.View style={[styles.container, rStyles]}>
+          <Card style={[styles.card, {flex: 1}]}>
+            <View style={styles.header}>
+              <View style={[styles.headerBtn, { height: visible ? 4 : 0 }]} />
+            </View>
+            {children}
+          </Card>
+        </Animated.View>
+      </PanGestureHandler>
     </>
   )
 } 
@@ -65,11 +94,11 @@ const styles = StyleSheet.create({
     bottom: 0
   },
   card: {
-    paddingTop: 8
+    paddingTop: normalizeMeasure(1)
   },
   header : {
     alignItems: 'center',
-    marginBottom: 8
+    marginBottom: normalizeMeasure(1)
   },
   headerBtn: {
     backgroundColor: purple,

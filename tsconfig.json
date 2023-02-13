@@ -23,6 +23,9 @@
       "assets/*": [
         "assets/*"
       ],
+      "images:/*": [
+        "assets/images/*"
+      ],
       "constants/*": [
         "src/constants/*"
       ],

@@ -1,10 +1,13 @@
 import React from 'react';
 import { StyleSheet, SafeAreaView, LayoutChangeEvent, View } from 'react-native';
+
+import { normalizeMeasure } from 'utils/Style';
+
 import { ContainerProps } from '../../props/generic';
 
 export type SafeAreaProps = ContainerProps & { onLayout?: (event: LayoutChangeEvent) => void}
 
-export const SafeArea: React.FC<SafeAreaProps> = ({children, onLayout}) => {
+export const SafeArea: React.FC<SafeAreaProps> = ({ children, onLayout }) => {
   return (
     <SafeAreaView onLayout={onLayout} style={{flex: 1}}>
       <View style={styles.container} >
@@ -16,6 +19,8 @@ export const SafeArea: React.FC<SafeAreaProps> = ({children, onLayout}) => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    paddingTop: normalizeMeasure(4),
+    paddingHorizontal: normalizeMeasure(2)
   }
 });

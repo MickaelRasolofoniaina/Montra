@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useRef } from 'react';
 import { View, StyleSheet, FlatList, ViewToken, Pressable } from 'react-native';
 
-import { addStyleWhen } from 'utils/Style';
+import { addStyleWhen, normalizeMeasure } from 'utils/Style';
 
 import { primaryColor, secondaryColor } from 'constants/Color';
 import { relativeToWidth, screenWidth } from 'constants/Layout';
@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
     width: DOT_DIMENSION,
     borderRadius: DOT_DIMENSION / 2,
     backgroundColor: secondaryColor,
-    marginHorizontal: 10
+    marginHorizontal: normalizeMeasure(1)
   },
   dotActive: {
     height: DOT_DIMENSION * 2,
