@@ -1,13 +1,13 @@
-import React from 'react';
-import { View, StyleSheet, TouchableOpacity } from 'react-native';
+import React from "react";
+import { View, StyleSheet, TouchableOpacity } from "react-native";
 
-import { black } from 'constants/Color';
+import { black } from "constants/Color";
 
-import { addElevation } from 'utils/Style';
+import { addElevation } from "utils/Style";
 
-import { ContainerProps } from 'modules/shared/props/generic';
+import { ContainerProps } from "modules/shared/props/generic";
 
-import { Render } from './Render';
+import { Render } from "./Render";
 
 type BackdropProps =  ContainerProps & { onClick: () => void, visible?: boolean };
 
@@ -27,12 +27,12 @@ export const Backdrop: React.FC<BackdropProps> = ({ children, onClick , visible 
 
 const styles = StyleSheet.create({
   container: {
-    position: 'absolute',
+    position: "absolute",
     top: 0,
     right: 0,
     bottom: 0,
     left: 0,
-    justifyContent: 'flex-end'
+    justifyContent: "flex-end",
   },
   backdrop: {
     backgroundColor: black,
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     ...addElevation(1),
   },
   content: {
-    position: 'absolute',
+    position: "absolute",
     right: 0,
     bottom: 0,
     left: 0,

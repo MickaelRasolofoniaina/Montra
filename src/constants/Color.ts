@@ -24,6 +24,8 @@ export const green = "#00A86B";
 export const yellow = "#FCAC12";
 export const yellow20 = "#FCEED4";
 
+export const blue = "#0077FF";
+
 export enum Theme {
   primary = "primary",
   danger = "danger",

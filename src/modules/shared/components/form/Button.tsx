@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, StyleSheet, TouchableOpacity } from "react-native";
+import { Text, View, StyleSheet, TouchableOpacity, Pressable } from "react-native";
 
 import { primaryColor, secondaryColor, Theme, white } from "constants/Color";
 import { fontFamily, fontSize } from "constants/Font";
@@ -68,3 +68,41 @@ const defaultStyles = StyleSheet.create({
     fontSize: fontSize.large,
   },
 });
+
+export interface CircleButtonProps extends Stylable {
+  icon: React.ReactNode;
+  color: string;
+  onPress: () => void;
+  addEffect?: boolean;
+}
+
+export const CircleButton: React.FC<CircleButtonProps> = ({
+  icon,
+  color,
+  onPress,
+  style,
+  addEffect = true
+}) => {
+  const Button = addEffect ? TouchableOpacity : Pressable;
+
+  return (
+    <View style={style}>
+      <Button onPress={onPress}>
+        <View
+          style={[
+            {
+              alignItems: "center",
+              justifyContent: "center",
+              borderRadius: 25,
+              backgroundColor: color,
+              height: 50,
+              width: 50,
+            },
+          ]}
+        >
+          {icon}
+        </View>
+      </Button>
+    </View>
+  );
+};
