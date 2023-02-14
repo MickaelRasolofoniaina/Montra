@@ -32,17 +32,17 @@ const TRANSACTION_FILTER = [
   },
 ];
 
-const TRANSACTION_LIST = [{
-  category: TransactionCategory.Subscription,
-  description: "Disney",
-  amount: 120,
-  date: new Date(),
-  type: TransactionType.Out
-},
+const TRANSACTION_LIST = [
 {
   category: TransactionCategory.Shopping,
   description: "Buy some grocery",
   amount: 80,
+  date: new Date(),
+  type: TransactionType.Out
+},{
+  category: TransactionCategory.Subscription,
+  description: "Disney",
+  amount: 120,
   date: new Date(),
   type: TransactionType.Out
 },{
@@ -130,7 +130,6 @@ const styles = StyleSheet.create({
   },
   transaction: {
     flex: 1,
-    alignItems: "flex-start",
     backgroundColor: "#FFF",
     paddingTop: normalizeMeasure(2),
     paddingHorizontal: screenPaddingHorizontal

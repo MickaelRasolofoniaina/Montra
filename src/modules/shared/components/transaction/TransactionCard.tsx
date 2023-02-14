@@ -1,12 +1,23 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
-import { Entypo } from "@expo/vector-icons";
+import { Entypo, MaterialIcons, MaterialCommunityIcons } from "@expo/vector-icons";
 
-import { white, yellow, yellow20 } from "constants/Color";
+import {
+  white,
+  yellow,
+  yellow20,
+  black300,
+  grey,
+  red,
+  primaryColor,
+  secondaryColor,
+  red20,
+} from "constants/Color";
+import { fontFamily } from "constants/Font";
 
 import { normalizeMeasure } from "utils/Style";
 
-import { Transaction } from "models/transaction.model";
+import { Transaction, TransactionCategory } from "models/transaction.model";
 
 import { BadgeIcon } from "../card/Badge";
 
@@ -19,22 +30,50 @@ export const TransactionCard: React.FC<TransactionCardProps> = ({
 }) => {
   const { category, description, amount, date } = transaction;
 
+  const renderBadge = () => {
+    switch (category) {
+      case TransactionCategory.Shopping:
+        return (
+          <BadgeIcon
+            icon={<Entypo name="shopping-basket" size={35} color={yellow} />}
+            color={yellow20}
+          />
+        );
+      case TransactionCategory.Subscription:
+        return (
+          <BadgeIcon
+            icon={
+              <MaterialIcons name="event-note" size={35} color={primaryColor} />
+            }
+            color={secondaryColor}
+          />
+        );
+      default:
+        return (
+          <BadgeIcon
+            icon={<MaterialCommunityIcons name="food-fork-drink" size={35} color={red} />}
+            color={red20}
+          />
+        );
+    }
+  };
+
   return (
     <View style={styles.container}>
-      <View style={styles.iconContainer}>
-        <BadgeIcon
-          icon={<Entypo name="shopping-basket" size={35} color={yellow} />}
-          color={yellow20}
-        />
-      </View>
+      <View style={styles.iconContainer}>{renderBadge()}</View>
       <View style={styles.textContainer}>
         <View style={styles.textItem}>
-          <Text>{category}</Text>
-          <Text>{description}</Text>
+          <Text style={styles.category}>{category}</Text>
+          <Text style={styles.description}>{description}</Text>
         </View>
         <View style={styles.textItem}>
-          <Text>{amount}</Text>
-          <Text>{date.toLocaleTimeString()}</Text>
+          <Text style={styles.amount}>${amount}</Text>
+          <Text style={styles.date}>
+            {date.toLocaleTimeString([], {
+              hour: "2-digit",
+              minute: "2-digit",
+            })}
+          </Text>
         </View>
       </View>
     </View>
@@ -44,7 +83,6 @@ export const TransactionCard: React.FC<TransactionCardProps> = ({
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    alignItems: "center",
     backgroundColor: white,
     borderRadius: 24,
     padding: normalizeMeasure(2),
@@ -53,14 +91,41 @@ const styles = StyleSheet.create({
   iconContainer: {
     alignItems: "center",
     justifyContent: "center",
-    marginRight: normalizeMeasure(1)
+    marginRight: normalizeMeasure(1),
   },
   textContainer: {
+    flex: 1,
     flexDirection: "row",
-    justifyContent: "space-between"
+    justifyContent: "space-between",
   },
   textItem: {
-    alignItems: "flex-end",
-    justifyContent: "space-between"
-  }
+    justifyContent: "space-between",
+  },
+  category: {
+    fontFamily: fontFamily.medium,
+    fontSize: 16,
+    lineHeight: 19,
+    color: black300,
+    textTransform: "capitalize",
+  },
+  description: {
+    fontFamily: fontFamily.medium,
+    fontSize: 13,
+    lineHeight: 15,
+    color: grey,
+    textTransform: "capitalize",
+  },
+  amount: {
+    fontFamily: fontFamily.semiBold,
+    fontSize: 16,
+    lineHeight: 19,
+    color: red,
+    textAlign: "right",
+  },
+  date: {
+    fontFamily: fontFamily.medium,
+    fontSize: 13,
+    lineHeight: 15,
+    color: grey,
+  },
 });

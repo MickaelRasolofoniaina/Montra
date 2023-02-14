@@ -13,6 +13,7 @@ export const grey100 = "#C6C6C6";
 export const white = "#FCFCFC";
 
 export const red = "#FD3C4A"; 
+export const red20 = "#FDD5D7";
 
 export const purple = "#D3BDFF";
 
