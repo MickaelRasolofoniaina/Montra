@@ -8,7 +8,8 @@ import { ContainerProps } from 'modules/shared/props/generic';
 type ScreenProps = ContainerProps & {
   statusBarTheme: 'light' | 'dark',
   bgColor: string,
-  notSafeView?: React.ReactNode
+  notSafeView?: React.ReactNode,
+  collapseEdge?: boolean
 }
 
 export const Screen: React.FC<ScreenProps> = ({
@@ -16,12 +17,13 @@ export const Screen: React.FC<ScreenProps> = ({
   bgColor,
   children,
   notSafeView,
-  style
+  style,
+  collapseEdge
 }) => {
   return (
-    <View style={[styles.container, { backgroundColor: bgColor}, style]}>
+    <View style={[styles.container, { backgroundColor: bgColor }, style]}>
       <StatusBar style={statusBarTheme} />
-      <SafeArea>
+      <SafeArea removeHorizontalSpacing={collapseEdge}>
         {children}
       </SafeArea>
       {notSafeView}

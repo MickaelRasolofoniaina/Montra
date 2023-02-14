@@ -20,6 +20,9 @@
       "modules/*": [
         "src/modules/*"
       ],
+      "models/*": [
+        "src/models/*"
+      ],
       "assets/*": [
         "assets/*"
       ],

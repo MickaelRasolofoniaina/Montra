@@ -65,3 +65,27 @@ const styles = StyleSheet.create({
     color: "#FFF"
   },
 })
+
+export interface BadgeIconProps {
+  icon: React.ReactNode;
+  color: string;
+}
+
+export const BadgeIcon: React.FC<BadgeIconProps> = ({
+  icon,
+  color
+}) => {
+  return (
+    <View style={{
+      alignItems: "center",
+      justifyContent: "center",
+      backgroundColor: color,
+      borderRadius: 16,
+      padding: normalizeMeasure(1),
+      height: 60,
+      width: 60
+    }}>
+      {icon}
+    </View>
+  );
+}

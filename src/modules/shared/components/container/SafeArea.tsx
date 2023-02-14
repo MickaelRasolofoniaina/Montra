@@ -1,16 +1,19 @@
-import React from 'react';
-import { StyleSheet, SafeAreaView, LayoutChangeEvent, View } from 'react-native';
+import React from "react";
+import { StyleSheet, SafeAreaView, LayoutChangeEvent, View } from "react-native";
 
-import { normalizeMeasure } from 'utils/Style';
+import { screenPaddingHorizontal, screenPaddingTop } from "constants/Layout";
 
-import { ContainerProps } from '../../props/generic';
+import { ContainerProps } from "../../props/generic";
 
-export type SafeAreaProps = ContainerProps & { onLayout?: (event: LayoutChangeEvent) => void}
+export type SafeAreaProps = ContainerProps & { onLayout?: (event: LayoutChangeEvent) => void, removeHorizontalSpacing?: boolean}
 
-export const SafeArea: React.FC<SafeAreaProps> = ({ children, onLayout }) => {
+export const SafeArea: React.FC<SafeAreaProps> = ({ children, onLayout, removeHorizontalSpacing = false }) => {
   return (
-    <SafeAreaView onLayout={onLayout} style={{flex: 1}}>
-      <View style={styles.container} >
+    <SafeAreaView onLayout={onLayout} style={styles.container}>
+      <View style={[styles.container, {
+        paddingTop: screenPaddingTop,
+        paddingHorizontal: removeHorizontalSpacing ? 0 : screenPaddingHorizontal
+      }]} >
         {children}
       </View>
     </SafeAreaView>
@@ -19,8 +22,6 @@ export const SafeArea: React.FC<SafeAreaProps> = ({ children, onLayout }) => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    paddingTop: normalizeMeasure(4),
-    paddingHorizontal: normalizeMeasure(2)
+    flex: 1
   }
 });
