@@ -48,7 +48,8 @@ const primaryStyles = StyleSheet.create({
   },
   label: {
     fontFamily: fontFamily.semiBold,
-    fontSize: fontSize.large,
+    fontSize: 18,
+    lineHeight: 21,
     color: white,
   },
 });
@@ -63,9 +64,10 @@ const defaultStyles = StyleSheet.create({
     marginBottom: normalizeMeasure(2),
   },
   label: {
-    color: primaryColor,
     fontFamily: fontFamily.semiBold,
-    fontSize: fontSize.large,
+    fontSize: 18,
+    lineHeight: 21,
+    color: primaryColor,
   },
 });
 

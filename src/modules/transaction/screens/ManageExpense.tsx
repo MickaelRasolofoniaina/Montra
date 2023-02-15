@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { StyleSheet } from "react-native";
 
-import { red, white } from "constants/Color";
+import { red, Theme, white } from "constants/Color";
 
 import { normalizeMeasure } from "utils/Style";
 
@@ -19,6 +19,7 @@ import { SpaceContent } from "modules/shared/components/container/SpaceContent";
 import { SelectInput } from "modules/shared/components/form/SelectInput";
 import { FileInput } from "modules/shared/components/form/FileInput";
 import { Switch } from "modules/shared/components/form/Switch";
+import { Button } from "modules/shared/components/form/Button";
 
 export const ManageExpense: React.FC = () => {
   const [amount, setAmount] = useState("0");
@@ -34,6 +35,10 @@ export const ManageExpense: React.FC = () => {
 
   const onRepeatChange = (repeat: boolean) => {
     setRepeat(repeat);
+  }
+
+  const validate = () => {
+    
   }
 
   return (
@@ -70,6 +75,7 @@ export const ManageExpense: React.FC = () => {
           />
           <FileInput onImageSelected={onAttachementUploaded} />
           <Switch label="Repeat" description="Repeat transaction" onValueChange={onRepeatChange} value={repeat} />
+          <Button theme={Theme.primary} label="Continue" onPress={validate} />
         </SpaceContent>
       </Card>
     </Screen>
