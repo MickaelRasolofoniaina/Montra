@@ -20,6 +20,7 @@ import { SelectInput } from "modules/shared/components/form/SelectInput";
 import { FileInput } from "modules/shared/components/form/FileInput";
 import { Switch } from "modules/shared/components/form/Switch";
 import { Button } from "modules/shared/components/form/Button";
+import { StickyFooter } from "modules/shared/components/container/StickyFooter";
 
 export const ManageExpense: React.FC = () => {
   const [amount, setAmount] = useState("0");
@@ -29,17 +30,13 @@ export const ManageExpense: React.FC = () => {
     setAmount(amount);
   };
 
-  const onAttachementUploaded = (attachmentUri: string) => {
-
-  }
+  const onAttachementUploaded = (attachmentUri: string) => {};
 
   const onRepeatChange = (repeat: boolean) => {
     setRepeat(repeat);
-  }
+  };
 
-  const validate = () => {
-    
-  }
+  const validate = () => {};
 
   return (
     <Screen
@@ -64,7 +61,7 @@ export const ManageExpense: React.FC = () => {
         />
       </SpaceContent>
       <Card>
-        <SpaceContent>
+        <SpaceContent style={{ flex: 1}}>
           <SelectInput />
           <TextInput
             value={amount}
@@ -74,8 +71,15 @@ export const ManageExpense: React.FC = () => {
             placeholder="Description"
           />
           <FileInput onImageSelected={onAttachementUploaded} />
-          <Switch label="Repeat" description="Repeat transaction" onValueChange={onRepeatChange} value={repeat} />
-          <Button theme={Theme.primary} label="Continue" onPress={validate} />
+          <Switch
+            label="Repeat"
+            description="Repeat transaction"
+            onValueChange={onRepeatChange}
+            value={repeat}
+          />
+          <StickyFooter collapseBottom>
+            <Button theme={Theme.primary} label="Continue" onPress={validate} />
+          </StickyFooter>
         </SpaceContent>
       </Card>
     </Screen>

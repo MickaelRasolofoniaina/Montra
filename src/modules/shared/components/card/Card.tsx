@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFF',
     borderTopStartRadius: normalizeMeasure(4),
     borderTopEndRadius: normalizeMeasure(4),
-    paddingVertical: normalizeMeasure(3),
+    paddingTop: normalizeMeasure(3),
     paddingHorizontal: normalizeMeasure(2)
   }
 });

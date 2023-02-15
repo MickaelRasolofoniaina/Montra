@@ -1,11 +1,15 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 
+import { addStyleWhen } from 'utils/Style';
+
 import { ContainerProps } from 'modules/shared/props/generic';
 
-export const StickyFooter: React.FC<ContainerProps> = ({ children }) => {
+export type StickyFooterProps = ContainerProps & { collapseBottom?: boolean };
+
+export const StickyFooter: React.FC<StickyFooterProps> = ({ children, collapseBottom = false }) => {
   return (
-    <View style={styles.footer}>
+    <View style={[styles.footer, addStyleWhen(collapseBottom, { bottom: 0 })]}>
       {children}
     </View>
   )
