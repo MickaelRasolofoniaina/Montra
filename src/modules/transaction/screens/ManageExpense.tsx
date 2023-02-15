@@ -18,9 +18,11 @@ import { Card } from "modules/shared/components/card/Card";
 import { SpaceContent } from "modules/shared/components/container/SpaceContent";
 import { SelectInput } from "modules/shared/components/form/SelectInput";
 import { FileInput } from "modules/shared/components/form/FileInput";
+import { Switch } from "modules/shared/components/form/Switch";
 
 export const ManageExpense: React.FC = () => {
   const [amount, setAmount] = useState("0");
+  const [repeat, setRepeat] = useState(false);
 
   const onAmountChange = (amount: string) => {
     setAmount(amount);
@@ -28,6 +30,10 @@ export const ManageExpense: React.FC = () => {
 
   const onAttachementUploaded = (attachmentUri: string) => {
 
+  }
+
+  const onRepeatChange = (repeat: boolean) => {
+    setRepeat(repeat);
   }
 
   return (
@@ -63,6 +69,7 @@ export const ManageExpense: React.FC = () => {
             placeholder="Description"
           />
           <FileInput onImageSelected={onAttachementUploaded} />
+          <Switch label="Repeat" description="Repeat transaction" onValueChange={onRepeatChange} value={repeat} />
         </SpaceContent>
       </Card>
     </Screen>

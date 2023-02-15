@@ -79,6 +79,7 @@ const styles = StyleSheet.create({
     borderStyle: "dashed",
     borderRadius: 16,
     padding: normalizeMeasure(2),
+    marginBottom: normalizeMeasure(2)
   },
   placeholder: {
     fontFamily: fontFamily.regular,
