@@ -3,7 +3,6 @@ import { View, StyleSheet } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 
 import { bisque, black100, black200, green, grey, red } from "constants/Color";
-import { screenPaddingHorizontal } from "constants/Layout";
 
 import { normalizeMeasure } from "utils/Style";
 
@@ -16,6 +15,7 @@ import { Screen } from "modules/shared/components/container/Screen";
 import { Badge } from "modules/shared/components/card/Badge";
 import { Tab } from "modules/shared/components/other/Tab";
 import { TransactionList } from "modules/shared/components/transaction/TransactionList";
+import { SpaceContent } from "modules/shared/components/container/SpaceContent";
 
 const TRANSACTION_FILTER = [
   {
@@ -61,7 +61,7 @@ export const Home: React.FC<HomeProps> = ({}) => {
   return (
     <Screen statusBarTheme="dark" bgColor={bisque} collapseEdge>
       <View style={styles.container}>
-        <View style={styles.balance}>
+        <SpaceContent style={styles.balance}>
           <Typography
             text="Account balance"
             variant={TypoVariant.body1}
@@ -73,8 +73,8 @@ export const Home: React.FC<HomeProps> = ({}) => {
             color={black100}
             marginBottom={3}
           />
-        </View>
-        <View style={styles.overview}>
+        </SpaceContent>
+        <SpaceContent style={styles.overview}>
           <View style={styles.overviewItem}>
             <Badge
               title="Income"
@@ -91,8 +91,8 @@ export const Home: React.FC<HomeProps> = ({}) => {
               icon={<AntDesign name="upcircleo" size={24} color={red} />}
             />
           </View>
-        </View>
-        <View style={styles.transaction}>
+        </SpaceContent>
+        <SpaceContent style={styles.transaction}>
           <Typography
             text="Spend frequency"
             variant={TypoVariant.title3}
@@ -105,7 +105,7 @@ export const Home: React.FC<HomeProps> = ({}) => {
             onClick={onTrasactionFilterClick}
           />
           <TransactionList items={TRANSACTION_LIST} title="Recent transaction" />
-        </View>
+        </SpaceContent>
       </View>
     </Screen>
   );
@@ -117,12 +117,10 @@ const styles = StyleSheet.create({
   },
   balance: {
     alignItems: "center",
-    paddingHorizontal: screenPaddingHorizontal,
   },
   overview: {
     flexDirection: "row",
     justifyContent: "space-between",
-    paddingHorizontal: screenPaddingHorizontal,
     marginBottom: normalizeMeasure(4),
   },
   overviewItem: {
@@ -132,7 +130,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#FFF",
     paddingTop: normalizeMeasure(2),
-    paddingHorizontal: screenPaddingHorizontal
   },
 });
 

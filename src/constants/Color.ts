@@ -9,6 +9,7 @@ export const black300 = "#292B2D";
 
 export const grey = "#91919F";
 export const grey100 = "#C6C6C6";
+export const grey200 = "#F1F1FA";
 
 export const white = "#FCFCFC";
 

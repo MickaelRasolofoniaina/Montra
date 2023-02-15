@@ -17,6 +17,7 @@ import { fontFamily } from "constants/Font";
 
 import Home from "modules/home/screens/Home";
 import FakeScreen from "modules/home/screens/FakeScreen";
+import ManageExpense from "modules/transaction/screens/ManageExpense";
 
 import { CircleButton } from "../form/Button";
 
@@ -96,7 +97,7 @@ const TABS = [
   },
   {
     name: Screen.Transaction,
-    component: Home,
+    component: ManageExpense,
     icon: (props: IconProps) => {
       return (
         <MaterialCommunityIcons
