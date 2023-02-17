@@ -1,8 +1,22 @@
 import React from "react";
-import { Text, View, StyleSheet, TouchableOpacity, Pressable } from "react-native";
+import {
+  Text,
+  View,
+  StyleSheet,
+  TouchableOpacity,
+  Pressable,
+} from "react-native";
 
-import { primaryColor, secondaryColor, Theme, white } from "constants/Color";
-import { fontFamily, fontSize } from "constants/Font";
+import {
+  green,
+  primaryColor,
+  red,
+  secondaryColor,
+  Theme,
+  white,
+  yellow,
+} from "constants/Color";
+import { fontFamily } from "constants/Font";
 
 import { normalizeMeasure } from "utils/Style";
 
@@ -83,7 +97,7 @@ export const CircleButton: React.FC<CircleButtonProps> = ({
   color,
   onPress,
   style,
-  addEffect = true
+  addEffect = true,
 }) => {
   const Button = addEffect ? TouchableOpacity : Pressable;
 
@@ -108,3 +122,43 @@ export const CircleButton: React.FC<CircleButtonProps> = ({
     </View>
   );
 };
+
+export const TextButton: React.FC<ButtonProps> = ({
+  label,
+  onPress,
+  theme = Theme.default,
+}) => {
+  return (
+    <TouchableOpacity
+      onPress={onPress}
+      style={{ marginRight: normalizeMeasure(2) }}
+    >
+      <Text style={[textButtonStyles.label, textButtonStyles[theme]]}>
+        {label}
+      </Text>
+    </TouchableOpacity>
+  );
+};
+
+const textButtonStyles = StyleSheet.create({
+  label: {
+    fontFamily: fontFamily.regular,
+    fontSize: 16,
+    lineHeight: 19,
+  },
+  success: {
+    color: green,
+  },
+  danger: {
+    color: red,
+  },
+  primary: {
+    color: primaryColor,
+  },
+  default: {
+    color: secondaryColor,
+  },
+  warning: {
+    color: yellow,
+  },
+});
