@@ -1,6 +1,7 @@
 import React from "react";
+import { ViewStyle } from "react-native";
 export interface Stylable {
-  style?: any;
+  style?: ViewStyle;
 }
 export interface ContainerProps extends Stylable {
   children?: React.ReactNode;
