@@ -53,4 +53,4 @@ const styles = StyleSheet.create({
     color: white,
     marginBottom: normalizeMeasure(1)
   }
-})
+});
