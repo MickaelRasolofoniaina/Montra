@@ -7,17 +7,18 @@ module.exports = function(api) {
         "module-resolver",
         {
           alias: {
-            modules: "./src/modules",
-            models: "./src/models",
-            definitions: "./src/definitions",
-            constants: "./src/constants",
-            utils: "./src/utils",
+            modules: "./modules",
+            models: "./models",
+            definitions: "./definitions",
+            constants: "./constants",
+            utils: "./utils",
             assets: "./assets",
-            images: "./assets/images"
+            images: "./images"
           },
         }
       ],
-      "react-native-reanimated/plugin"
+      "react-native-reanimated/plugin",
+      require.resolve("expo-router/babel")
     ]
   };
 };

@@ -18,22 +18,22 @@
     "baseUrl": ".",
     "paths": {
       "modules/*": [
-        "src/modules/*"
+        "modules/*"
       ],
       "models/*": [
-        "src/models/*"
+        "models/*"
       ],
       "definitions/*": [
-        "src/definitions/*"
+        "definitions/*"
       ],
       "assets/*": [
         "assets/*"
       ],
-      "images:/*": [
+      "images/*": [
         "assets/images/*"
       ],
       "constants/*": [
-        "src/constants/*"
+        "constants/*"
       ],
       "utils/*": [
         "src/utils/*"

@@ -1,13 +1,13 @@
-import React from 'react';
-import { useState, useRef } from 'react';
-import { View, StyleSheet, FlatList, ViewToken, Pressable } from 'react-native';
+import React from "react";
+import { useState, useRef } from "react";
+import { View, StyleSheet, FlatList, ViewToken, Pressable } from "react-native";
 
-import { addStyleWhen, normalizeMeasure } from 'utils/Style';
+import { addStyleWhen, normalizeMeasure } from "utils/Style";
 
-import { primaryColor, secondaryColor } from 'constants/Color';
-import { relativeToWidth, screenWidth } from 'constants/Layout';
+import { primaryColor, secondaryColor } from "constants/Color";
+import { relativeToWidth, screenWidth } from "constants/Layout";
 
-import { Stylable } from 'modules/shared/props/generic';
+import { Stylable } from "modules/shared/props/generic";
 
 export interface CarouselItem {
   id: string;
@@ -52,7 +52,7 @@ export const Carousel: React.FC<CarouselProps> = ({ items, style }) => {
       <FlatList
         ref={ref}
         horizontal
-        decelerationRate='normal'
+        decelerationRate="normal"
         showsHorizontalScrollIndicator={false}
         initialNumToRender={1}
         initialScrollIndex={0}
@@ -75,9 +75,9 @@ const DOT_DIMENSION = 8;
 
 const styles = StyleSheet.create({
   footer: {
-    flexDirection:'row',
-    alignItems: 'center',
-    justifyContent: 'center',
+    flexDirection:"row",
+    alignItems: "center",
+    justifyContent: "center",
   },
   dot: {
     height: DOT_DIMENSION,

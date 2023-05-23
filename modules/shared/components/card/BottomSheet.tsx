@@ -1,17 +1,17 @@
-import React, { useEffect } from 'react';
-import { View, StyleSheet } from 'react-native';
-import Animated, { useAnimatedStyle, useSharedValue, withTiming, useAnimatedGestureHandler, runOnJS } from 'react-native-reanimated';
-import { PanGestureHandler } from 'react-native-gesture-handler';
+import React from "react";
+import { View, StyleSheet } from "react-native";
+import Animated, { useAnimatedStyle, useSharedValue, withTiming, useAnimatedGestureHandler, runOnJS } from "react-native-reanimated";
+import { PanGestureHandler } from "react-native-gesture-handler";
 
-import { ContainerProps } from 'modules/shared/props/generic';
+import { ContainerProps } from "modules/shared/props/generic";
 
-import { purple } from 'constants/Color';
-import { relativeToHeight } from 'constants/Layout';
+import { purple } from "constants/Color";
+import { relativeToHeight } from "constants/Layout";
 
-import { normalizeMeasure } from 'utils/Style';
+import { normalizeMeasure } from "utils/Style";
 
-import { Card } from './Card';
-import { Backdrop } from '../container/Backdrop';
+import { Card } from "./Card";
+import { Backdrop } from "../container/Backdrop";
 
 type BottomSheetProps = ContainerProps & { 
   visible: boolean, 
@@ -88,7 +88,7 @@ export const BottomSheet: React.FC<BottomSheetProps> = ({
 
 const styles = StyleSheet.create({
   container: {
-    position: 'absolute',
+    position: "absolute",
     left: 0,
     right: 0,
     bottom: 0
@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
     paddingTop: normalizeMeasure(1)
   },
   header : {
-    alignItems: 'center',
+    alignItems: "center",
     marginBottom: normalizeMeasure(1)
   },
   headerBtn: {

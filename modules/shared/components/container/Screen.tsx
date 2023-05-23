@@ -1,12 +1,12 @@
-import React from 'react';
-import { StatusBar } from 'expo-status-bar';
-import { View, StyleSheet } from 'react-native';
+import React from "react";
+import { StatusBar } from "expo-status-bar";
+import { View, StyleSheet } from "react-native";
 
-import { SafeArea } from 'modules/shared/components/container/SafeArea';
-import { ContainerProps } from 'modules/shared/props/generic';
+import { SafeArea } from "modules/shared/components/container/SafeArea";
+import { ContainerProps } from "modules/shared/props/generic";
 
 type ScreenProps = ContainerProps & {
-  statusBarTheme: 'light' | 'dark',
+  statusBarTheme: "light" | "dark",
   bgColor: string,
   notSafeView?: React.ReactNode,
   collapseEdge?: boolean

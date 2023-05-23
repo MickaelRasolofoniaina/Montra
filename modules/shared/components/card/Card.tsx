@@ -1,9 +1,9 @@
-import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import React from "react";
+import { View, StyleSheet } from "react-native";
 
-import { ContainerProps } from 'modules/shared/props/generic';
+import { ContainerProps } from "modules/shared/props/generic";
 
-import { normalizeMeasure } from 'utils/Style';
+import { normalizeMeasure } from "utils/Style";
 
 export const Card: React.FC<ContainerProps> = ({ children, style }) => {
   return (
@@ -16,7 +16,7 @@ export const Card: React.FC<ContainerProps> = ({ children, style }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFF',
+    backgroundColor: "#FFF",
     borderTopStartRadius: normalizeMeasure(4),
     borderTopEndRadius: normalizeMeasure(4),
     paddingTop: normalizeMeasure(3),

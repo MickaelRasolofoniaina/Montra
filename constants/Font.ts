@@ -1,10 +1,10 @@
 import { normalizeMeasure } from "utils/Style"
 
 export const fontFamily = {
-  bold: 'Inter-Bold',
-  semiBold: 'Inter-SemiBold',
-  medium: 'Inter-Medium',
-  regular: 'Inter-Regular'
+  bold: "Inter-Bold",
+  semiBold: "Inter-SemiBold",
+  medium: "Inter-Medium",
+  regular: "Inter-Regular"
 }
 
 /**

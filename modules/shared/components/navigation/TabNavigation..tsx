@@ -8,16 +8,15 @@ import {
   FontAwesome,
   AntDesign,
 } from "@expo/vector-icons";
+import { Tabs } from "expo-router";
 
 import { addStyleWhen } from "utils/Style";
 
-import { Screen } from "constants/Navigation";
 import { primaryColor, grey100, green, red, blue } from "constants/Color";
 import { fontFamily } from "constants/Font";
 
 import Home from "modules/home/screens/Home";
 import FakeScreen from "modules/home/screens/FakeScreen";
-import ManageExpense from "modules/transaction/screens/ManageExpense";
 
 import { CircleButton } from "../form/Button";
 
@@ -28,13 +27,16 @@ interface IconProps {
 }
 
 const MenuAction: React.FC = () => {
+
   const [show, toggleShow] = useState(false);
 
   const toggleMenu = () => {
     toggleShow(prev => !prev);
   };
 
-  const onPress = () => {};
+  const onPress = () => {
+
+  }
 
   return (
     <>
@@ -48,7 +50,7 @@ const MenuAction: React.FC = () => {
         <CircleButton
           icon={<AntDesign name="upcircleo" size={24} color="#FFF" />}
           color={red}
-          onPress={onPress}
+          onPress={() => {}}
           style={[styles.hide, addStyleWhen(show, styles.showOnRight)]}
         />
         <CircleButton
@@ -85,19 +87,17 @@ const styles = StyleSheet.create({
   }
 });
 
-const Tab = createBottomTabNavigator();
-
 const TABS = [
   {
-    name: Screen.Home,
+    name: "Home",
     component: Home,
     icon: (props: IconProps) => {
       return <Entypo name="home" size={props.size} color={props.color} />;
     },
   },
   {
-    name: Screen.Transaction,
-    component: ManageExpense,
+    name: "Transaction",
+    component: TransactionNavigator,
     icon: (props: IconProps) => {
       return (
         <MaterialCommunityIcons
@@ -116,14 +116,14 @@ const TABS = [
     },
   },
   {
-    name: Screen.Budget,
+    name: "Budget",
     component: Home,
     icon: (props: IconProps) => {
       return <Entypo name="pie-chart" size={props.size} color={props.color} />;
     },
   },
   {
-    name: Screen.Profile,
+    name: "Profile",
     component: Home,
     icon: (props: IconProps) => {
       return <FontAwesome name="user" size={props.size} color={props.color} />;
@@ -134,7 +134,7 @@ const TABS = [
 export const TabNavigation = () => {
   return (
     <NavigationContainer>
-      <Tab.Navigator
+      <Tabs.Navigator
         screenOptions={{
           tabBarLabelStyle: {
             fontFamily: fontFamily.semiBold,
@@ -155,7 +155,7 @@ export const TabNavigation = () => {
               options={
                 name !== "Action"
                   ? {
-                      headerShown: name !== Screen.Home,
+                      headerShown: name !== RootScreen.Home,
                       tabBarIcon: icon,
                     }
                   : {

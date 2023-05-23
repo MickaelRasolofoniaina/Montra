@@ -1,11 +1,11 @@
-import React from 'react';
-import { View, Text, StyleSheet, Image, ImageSourcePropType } from 'react-native';
+import React from "react";
+import { View, Text, StyleSheet, Image, ImageSourcePropType } from "react-native";
 
-import { fontFamily, fontSize } from 'constants/Font';
-import { black, grey } from 'constants/Color';
-import { relativeToHeight } from 'constants/Layout';
+import { fontFamily, fontSize } from "constants/Font";
+import { black, grey } from "constants/Color";
+import { relativeToHeight } from "constants/Layout";
 
-import { normalizeMeasure } from 'utils/Style';
+import { normalizeMeasure } from "utils/Style";
 
 export interface PromoCardProps {
   illustrationSrc: ImageSourcePropType;
@@ -29,18 +29,18 @@ export const PromoCard:React.FC<PromoCardProps> = ({
 
 export const styles = StyleSheet.create({
   container: {
-    alignItems: 'center',
+    alignItems: "center",
     paddingTop: normalizeMeasure(4)
   },
   illustration: {
     width: 312,
     height: relativeToHeight(40),
-    resizeMode: 'contain'
+    resizeMode: "contain"
   },
   title: {
     fontFamily: fontFamily.bold,
     fontSize: fontSize.extraLarge,
-    textAlign: 'center',
+    textAlign: "center",
     color: black,
     maxWidth: 277,
     marginBottom: normalizeMeasure(2)
@@ -48,7 +48,7 @@ export const styles = StyleSheet.create({
   description: {
     fontFamily: fontFamily.medium,
     fontSize: fontSize.medium,
-    textAlign: 'center',
+    textAlign: "center",
     color: grey,
     maxWidth: 277,
     marginBottom: normalizeMeasure(4)

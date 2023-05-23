@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { StyleSheet } from "react-native";
 
-import { red, Theme, white } from "constants/Color";
+import { Theme, white } from "constants/Color";
 
 import { normalizeMeasure } from "utils/Style";
 
@@ -9,7 +9,6 @@ import { CATEGORIES_INPUT } from "models/transaction.model";
 
 import { InputValue } from "definitions/type";
 
-import { Screen } from "modules/shared/components/container/Screen";
 import {
   Typography,
   TypoVariant,
@@ -27,7 +26,7 @@ import { Button } from "modules/shared/components/form/Button";
 import { StickyFooter } from "modules/shared/components/container/StickyFooter";
 import { ScrollView } from "modules/shared/components/container/ScrollView";
 
-export const ManageExpense: React.FC = () => {
+export const TransactionForm: React.FC = () => {
   const [amount, setAmount] = useState("0");
   const [repeat, setRepeat] = useState(false);
   const [category, setCategory] = useState<InputValue>(null);
@@ -45,12 +44,7 @@ export const ManageExpense: React.FC = () => {
   const validate = () => {};
 
   return (
-    <Screen
-      style={styles.container}
-      bgColor={red}
-      statusBarTheme="light"
-      collapseEdge
-    >
+    <>
       <SpaceContent>
         <Typography
           variant={TypoVariant.title3}
@@ -68,8 +62,7 @@ export const ManageExpense: React.FC = () => {
       </SpaceContent>
       <Card>
         <SpaceContent style={{ flex: 1 }}>
-          <ScrollView 
-          >
+          <ScrollView>
             <SelectInput
               label="Category"
               items={CATEGORIES_INPUT}
@@ -90,17 +83,13 @@ export const ManageExpense: React.FC = () => {
               onValueChange={onRepeatChange}
               value={repeat}
             />
-                      </ScrollView>
-            <StickyFooter collapseBottom>
-              <Button
-                theme={Theme.primary}
-                label="Continue"
-                onPress={validate}
-              />
-            </StickyFooter>
+          </ScrollView>
+          <StickyFooter collapseBottom>
+            <Button theme={Theme.primary} label="Continue" onPress={validate} />
+          </StickyFooter>
         </SpaceContent>
       </Card>
-    </Screen>
+    </>
   );
 };
 
@@ -110,4 +99,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ManageExpense;
+export default TransactionForm;

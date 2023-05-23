@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-import { ContainerProps } from 'modules/shared/props/generic';
+import { ContainerProps } from "modules/shared/props/generic";
 
 type RenderProps = ContainerProps & { when: boolean };
 

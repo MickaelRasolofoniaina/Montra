@@ -1,9 +1,9 @@
-import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import React from "react";
+import { View, StyleSheet } from "react-native";
 
-import { addStyleWhen } from 'utils/Style';
+import { addStyleWhen } from "utils/Style";
 
-import { ContainerProps } from 'modules/shared/props/generic';
+import { ContainerProps } from "modules/shared/props/generic";
 
 export type StickyFooterProps = ContainerProps & { collapseBottom?: boolean };
 
@@ -17,7 +17,7 @@ export const StickyFooter: React.FC<StickyFooterProps> = ({ children, collapseBo
 
 const styles = StyleSheet.create({
   footer: {
-    position: 'absolute',
+    position: "absolute",
     bottom: 10,
     left: 0,
     right: 0,

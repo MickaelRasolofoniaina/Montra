@@ -8,7 +8,7 @@ import { fontFamily } from "constants/Font";
 
 import { normalizeMeasure, addStyleWhen } from "utils/Style";
 
-import { Render } from "./../container/Render";
+import { Render } from "../container/Render";
 
 export interface FileInputProps {
   onImageSelected: (imageUri: string) => void;
@@ -31,8 +31,8 @@ export const FileInput: React.FC<FileInputProps> = ({
       quality: 1,
     });
 
-    if (!result.cancelled) {
-      const { uri } = result; 
+    if (!result.canceled) {
+      const { uri } = result.assets[0]; 
       setImage(uri);
       onImageSelected(uri);
     }
