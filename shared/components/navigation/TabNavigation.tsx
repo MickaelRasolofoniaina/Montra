@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, StyleSheet, TouchableOpacity } from "react-native";
+import { View, StyleSheet } from "react-native";
 import {
   Entypo,
   MaterialCommunityIcons,
@@ -11,20 +11,11 @@ import { Tabs } from "expo-router";
 import { addStyleWhen } from "utils/Style";
 
 import { primaryColor, grey100, green, red, blue } from "constants/Color";
-import { fontFamily, fontSize } from "constants/Font";
-
-import { ContainerProps } from "shared/props/generic";
+import { fontFamily } from "constants/Font";
 
 import { CircleButton } from "../form/Button";
 
-
-interface IconProps {
-  focused: boolean;
-  color: string;
-  size: number;
-}
-
-const MenuAction: React.FC = () => {
+export const MenuAction: React.FC = ({}) => {
   const [show, toggleShow] = useState(false);
 
   const toggleMenu = () => {
@@ -56,8 +47,14 @@ const MenuAction: React.FC = () => {
         />
         <CircleButton
           addEffect={false}
-          icon={<AntDesign name="plus" size={24} color="#FFF" />}
-          color={green}
+          icon={<AntDesign name="plus" size={24} color="#FFF" style={addStyleWhen(show, {
+            transform: [
+              {
+                rotate: "45deg"
+              }
+            ]
+          })} />}
+          color={primaryColor}
           onPress={toggleMenu}
         />
       </View>
@@ -86,55 +83,73 @@ const styles = StyleSheet.create({
   },
 });
 
-// export const TabNavigation: React.FC = () => {
-//   return (
-//     <View style={styles.tabNavigation}>
-//       <Entypo name="home" size={30} color={grey} />
-//       <MaterialCommunityIcons name="finance" size={30} color={grey} />
-//       <AntDesign name="pluscircle" size={30} color={grey} />
-//       <Entypo name="pie-chart" size={30} color={grey} />
-//       <FontAwesome name="user" size={30} color={grey} />
-//     </View>
-//   );
-// };
-
 export const TabNavigation: React.FC = () => {
   return (
-    <Tabs screenOptions={{
-      headerShown: false,
-      tabBarInactiveTintColor: grey100,
-      tabBarActiveTintColor: primaryColor,
-      tabBarLabelStyle: {
-        fontFamily: fontFamily.semiBold,
-        fontSize: 10,
-        lineHeight: 12
-      }
-    }}>
-      <Tabs.Screen name="home/index" options={{
-        title: "Home",
-        tabBarIcon: ({ color, size }) => {
-          return <Entypo name="home" size={size} color={color} />
-        }
-      }} />
-      <Tabs.Screen name="transaction/index" options={{
-        title: "Transaction",
-        tabBarIcon: ({ color, size }) => {
-          return <MaterialCommunityIcons name="finance" size={size} color={color} />
-        }
-      }} />
-      <Tabs.Screen name="budget/index" options={{
-        title: "Budget",
-        tabBarIcon: ({ color, size }) => {
-          return <Entypo name="pie-chart" size={size} color={color} />
-        }
-      }} />
-      <Tabs.Screen name="profile/index" options={{
-        title: "Profile",
-        tabBarIcon: ({ color, size }) => {
-          return <FontAwesome name="user" size={size} color={color} />
-        }
-      }} />
+    <Tabs
+      initialRouteName="home/index"
+      screenOptions={{
+        headerShown: false,
+        tabBarStyle: { borderTopWidth: 0 },
+        tabBarInactiveTintColor: grey100,
+        tabBarActiveTintColor: primaryColor,
+        tabBarLabelStyle: {
+          fontFamily: fontFamily.semiBold,
+          fontSize: 10,
+          lineHeight: 12,
+        },
+      }}
+    >
+      <Tabs.Screen
+        name="home/index"
+        options={{
+          title: "Home",
+          tabBarIcon: ({ color, size }) => {
+            return <Entypo name="home" size={size} color={color} />;
+          },
+        }}
+      />
+      <Tabs.Screen
+        name="transaction/index"
+        options={{
+          title: "Transaction",
+          tabBarIcon: ({ color, size }) => {
+            return (
+              <MaterialCommunityIcons
+                name="finance"
+                size={size}
+                color={color}
+              />
+            );
+          },
+        }}
+      />
+      <Tabs.Screen
+        name="action/index"
+        options={{
+          tabBarLabel: () => null,
+          tabBarButton: () => {
+            return <MenuAction />;
+          },
+        }}
+      />
+      <Tabs.Screen
+        name="budget/index"
+        options={{
+          title: "Budget",
+          tabBarIcon: ({ color, size }) => {
+            return <Entypo name="pie-chart" size={size} color={color} />;
+          },
+        }}
+      />
+      <Tabs.Screen
+        name="profile/index"
+        options={{
+          title: "Profile",
+          tabBarIcon: ({ color, size }) => {
+            return <FontAwesome name="user" size={size} color={color} />;
+          },
+        }}
+      />
     </Tabs>
-  )
-} 
-
+  );
+};
