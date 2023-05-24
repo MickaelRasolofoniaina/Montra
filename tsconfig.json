@@ -36,7 +36,10 @@
         "constants/*"
       ],
       "utils/*": [
-        "src/utils/*"
+        "utils/*"
+      ],
+      "shared/*": [
+        "shared/*"
       ]
     }
   },

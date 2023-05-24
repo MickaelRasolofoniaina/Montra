@@ -13,7 +13,8 @@ module.exports = function(api) {
             constants: "./constants",
             utils: "./utils",
             assets: "./assets",
-            images: "./images"
+            images: "./images",
+            shared: "./shared"
           },
         }
       ],
