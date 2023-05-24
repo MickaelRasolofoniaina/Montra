@@ -6,7 +6,7 @@ import {
   FontAwesome,
   AntDesign,
 } from "@expo/vector-icons";
-import { Tabs } from "expo-router";
+import { Tabs, useRouter } from "expo-router";
 
 import { addStyleWhen } from "utils/Style";
 
@@ -16,13 +16,18 @@ import { fontFamily } from "constants/Font";
 import { CircleButton } from "../form/Button";
 
 export const MenuAction: React.FC = ({}) => {
+  const router = useRouter();
+
   const [show, toggleShow] = useState(false);
 
   const toggleMenu = () => {
     toggleShow((prev) => !prev);
   };
 
-  const onPress = () => {};
+  const navigate = (routeName: string) => {
+    router.replace(routeName);
+    toggleShow(false);
+  };
 
   return (
     <>
@@ -30,19 +35,20 @@ export const MenuAction: React.FC = ({}) => {
         <CircleButton
           icon={<AntDesign name="downcircleo" size={24} color="#FFF" />}
           color={green}
-          onPress={onPress}
+          onPress={() => navigate("transaction")}
           style={[styles.hide, addStyleWhen(show, styles.showOnLeft)]}
         />
+  
         <CircleButton
           icon={<AntDesign name="upcircleo" size={24} color="#FFF" />}
           color={red}
-          onPress={() => {}}
+          onPress={() => navigate("transaction")}
           style={[styles.hide, addStyleWhen(show, styles.showOnRight)]}
         />
         <CircleButton
           icon={<Entypo name="cycle" size={24} color="#FFF" />}
           color={blue}
-          onPress={onPress}
+          onPress={() => navigate("transaction")}
           style={[styles.hide, addStyleWhen(show, styles.showOnTop)]}
         />
         <CircleButton
