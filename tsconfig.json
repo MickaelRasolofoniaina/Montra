@@ -35,6 +35,9 @@
       "constants/*": [
         "constants/*"
       ],
+      "components/*": [
+        "components/*"
+      ],
       "utils/*": [
         "utils/*"
       ],

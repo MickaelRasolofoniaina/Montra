@@ -8,7 +8,9 @@ import {
 } from "react-native";
 
 import {
+  black,
   green,
+  grey,
   primaryColor,
   red,
   secondaryColor,
@@ -161,4 +163,74 @@ const textButtonStyles = StyleSheet.create({
   warning: {
     color: yellow,
   },
+});
+
+export interface ButtonIconProps {
+  icon: React.ReactNode;
+  onPress: () => void;
+}
+
+export const ButtonIcon: React.FC<ButtonIconProps> = ({ icon, onPress}) => {
+  return (
+    <TouchableOpacity
+      onPress={onPress}
+      style={buttonIconStyles.container}
+    >
+      {icon}
+    </TouchableOpacity>
+  )
+}
+
+const buttonIconStyles = StyleSheet.create({
+  container: {
+    borderWidth: 1,
+    borderColor: grey,
+    borderRadius: 8,
+    padding: normalizeMeasure(1)
+  }
+});
+
+export interface SimpleButtonProps {
+  label: string;
+  onPress: () => void;
+  startIcon?: React.ReactNode;
+  endIcon?: React.ReactNode;
+}
+
+export const SimpleButton: React.FC<SimpleButtonProps> = ({ label, onPress, startIcon, endIcon }) => {
+  return (
+    <TouchableOpacity
+      onPress={onPress}
+      style={simpleButtonStyles.container}
+    >
+      <View style={simpleButtonStyles.startIcon}>{startIcon}</View>
+      <Text style={simpleButtonStyles.label}>{label}</Text>
+      <View style={simpleButtonStyles.endIcon}>{endIcon}</View>
+    </TouchableOpacity>
+  )
+}
+
+const simpleButtonStyles = StyleSheet.create({
+  container: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "flex-start",
+    borderWidth: 1,
+    borderColor: grey,
+    borderRadius: 40,
+    paddingVertical: normalizeMeasure(1),
+    paddingHorizontal: normalizeMeasure(2)
+  },
+  startIcon: {
+    marginRight: normalizeMeasure(1)
+  },
+  label: {
+    fontFamily: fontFamily.semiBold,
+    fontSize: 14,
+    lineHeight: 18,
+    color: black
+  },
+  endIcon: {
+    marginLeft: normalizeMeasure(1)
+  }
 });

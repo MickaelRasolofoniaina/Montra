@@ -20,7 +20,6 @@ export const ManageExpense: React.FC = () => {
     >
       <Stack.Screen options={{
         title: "Income",
-        headerBackVisible: true,
         headerStyle: {
           backgroundColor: green
         },

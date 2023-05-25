@@ -22,7 +22,6 @@ export const ManageExpense: React.FC = () => {
     >
       <Stack.Screen options={{
         title: "Expense",
-        headerBackVisible: true,
         animation: "slide_from_bottom"
       }} />
       <TransactionForm transactionType={TransactionType.Out} />

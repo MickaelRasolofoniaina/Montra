@@ -3,7 +3,10 @@ import { MultipleInputData } from "definitions/type";
 export enum TransactionCategory {
   Shopping = "shopping",
   Subscription = "subscription",
-  Food = "food"
+  Food = "food",
+  Salary = "salary",
+  Transportation = "transportation",
+  Vehicle = "vehicle"
 }
 
 export const CATEGORIES_INPUT: MultipleInputData[] = [{

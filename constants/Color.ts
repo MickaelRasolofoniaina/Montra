@@ -17,10 +17,12 @@ export const red = "#FD3C4A";
 export const red20 = "#FDD5D7";
 
 export const purple = "#D3BDFF";
+export const purple100 = "#7F3DFF";
 
 export const bisque = "#FFF6E6";
 
 export const green = "#00A86B";
+export const green20 = "##CFFAEA";
 
 export const yellow = "#FCAC12";
 export const yellow20 = "#FCEED4";

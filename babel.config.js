@@ -11,6 +11,7 @@ module.exports = function(api) {
             models: "./models",
             definitions: "./definitions",
             constants: "./constants",
+            components: "./components",
             utils: "./utils",
             assets: "./assets",
             images: "./images",

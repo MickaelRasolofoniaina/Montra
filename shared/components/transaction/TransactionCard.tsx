@@ -12,12 +12,14 @@ import {
   primaryColor,
   secondaryColor,
   red20,
+  green20,
+  green
 } from "constants/Color";
 import { fontFamily } from "constants/Font";
 
 import { normalizeMeasure } from "utils/Style";
 
-import { Transaction, TransactionCategory } from "models/transaction.model";
+import { Transaction, TransactionCategory, TransactionType } from "models/transaction.model";
 
 import { BadgeIcon } from "../card/Badge";
 
@@ -28,7 +30,7 @@ export interface TransactionCardProps {
 export const TransactionCard: React.FC<TransactionCardProps> = ({
   transaction,
 }) => {
-  const { category, description, amount, date } = transaction;
+  const { category, description, amount, date, type } = transaction;
 
   const renderBadge = () => {
     switch (category) {
@@ -46,6 +48,15 @@ export const TransactionCard: React.FC<TransactionCardProps> = ({
               <MaterialIcons name="event-note" size={35} color={primaryColor} />
             }
             color={secondaryColor}
+          />
+        );
+      case TransactionCategory.Salary: 
+        return (
+          <BadgeIcon
+            icon={
+              <MaterialIcons name="event-note" size={35} color={green} />
+            }
+            color={green20}
           />
         );
       default:
@@ -67,7 +78,7 @@ export const TransactionCard: React.FC<TransactionCardProps> = ({
           <Text style={styles.description}>{description}</Text>
         </View>
         <View style={styles.textItem}>
-          <Text style={styles.amount}>${amount}</Text>
+          <Text style={styles.amount}>{type === TransactionType.In ? "+" : "-"} {amount}</Text>
           <Text style={styles.date}>
             {date.toLocaleTimeString([], {
               hour: "2-digit",
