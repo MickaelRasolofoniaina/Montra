@@ -1,6 +1,11 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
-import { Entypo, MaterialIcons, MaterialCommunityIcons } from "@expo/vector-icons";
+import {
+  Entypo,
+  MaterialIcons,
+  MaterialCommunityIcons,
+  FontAwesome5,
+} from "@expo/vector-icons";
 
 import {
   white,
@@ -13,13 +18,19 @@ import {
   secondaryColor,
   red20,
   green20,
-  green
+  green,
+  blue,
+  blue20,
 } from "constants/Color";
 import { fontFamily } from "constants/Font";
 
-import { normalizeMeasure } from "utils/Style";
+import { addStyleWhen, normalizeMeasure } from "utils/Style";
 
-import { Transaction, TransactionCategory, TransactionType } from "models/transaction.model";
+import {
+  Transaction,
+  TransactionCategory,
+  TransactionType,
+} from "models/transaction.model";
 
 import { BadgeIcon } from "../card/Badge";
 
@@ -50,19 +61,37 @@ export const TransactionCard: React.FC<TransactionCardProps> = ({
             color={secondaryColor}
           />
         );
-      case TransactionCategory.Salary: 
+      case TransactionCategory.Salary:
         return (
           <BadgeIcon
-            icon={
-              <MaterialIcons name="event-note" size={35} color={green} />
-            }
+            icon={<MaterialIcons name="attach-money" size={35} color={green} />}
             color={green20}
+          />
+        );
+      case TransactionCategory.Transportation:
+        return (
+          <BadgeIcon
+            icon={<FontAwesome5 name="car-side" size={35} color={blue} />}
+            color={blue20}
+          />
+        );
+      case TransactionCategory.Vehicle:
+        return (
+          <BadgeIcon
+            icon={<FontAwesome5 name="car" size={35} color={blue} />}
+            color={blue20}
           />
         );
       default:
         return (
           <BadgeIcon
-            icon={<MaterialCommunityIcons name="food-fork-drink" size={35} color={red} />}
+            icon={
+              <MaterialCommunityIcons
+                name="food-fork-drink"
+                size={35}
+                color={red}
+              />
+            }
             color={red20}
           />
         );
@@ -78,7 +107,9 @@ export const TransactionCard: React.FC<TransactionCardProps> = ({
           <Text style={styles.description}>{description}</Text>
         </View>
         <View style={styles.textItem}>
-          <Text style={styles.amount}>{type === TransactionType.In ? "+" : "-"} {amount}</Text>
+          <Text style={[styles.amount, addStyleWhen(type === TransactionType.In, styles.success)]}>
+            {type === TransactionType.In ? "+" : "-"} {amount}
+          </Text>
           <Text style={styles.date}>
             {date.toLocaleTimeString([], {
               hour: "2-digit",
@@ -139,4 +170,7 @@ const styles = StyleSheet.create({
     lineHeight: 15,
     color: grey,
   },
+  success: {
+    color: green
+  }
 });

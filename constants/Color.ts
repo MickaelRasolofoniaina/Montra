@@ -22,12 +22,13 @@ export const purple100 = "#7F3DFF";
 export const bisque = "#FFF6E6";
 
 export const green = "#00A86B";
-export const green20 = "##CFFAEA";
+export const green20 = "#CFFAEA";
 
 export const yellow = "#FCAC12";
 export const yellow20 = "#FCEED4";
 
 export const blue = "#0077FF";
+export const blue20 = "#BDDCFF";
 
 export enum Theme {
   primary = "primary",

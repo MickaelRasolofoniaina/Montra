@@ -51,7 +51,7 @@ const TRANSACTION_LIST = [
   amount: 32,
   date: new Date(),
   type: TransactionType.Out
-}]
+}];
 
 export interface HomeProps {}
 
