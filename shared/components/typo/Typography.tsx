@@ -18,7 +18,8 @@ export interface TypographyProps {
   size?: number,
   color?: string,
   alignCenter?: boolean,
-  marginBottom?: number 
+  marginBottom?: number,
+  opacity?: number
 }
 
 export const Typography: React.FC<TypographyProps> = ({
@@ -27,12 +28,13 @@ export const Typography: React.FC<TypographyProps> = ({
   size = fontSize.medium,
   color = black100,
   alignCenter = false,
-  marginBottom = 1
+  marginBottom = 1,
+  opacity = 1
 }) => {
   return <Text style={[{
     fontSize: size,
     color
-  }, styles[variant], { textAlign: alignCenter ? "center" : "left", marginBottom: normalizeMeasure(marginBottom) }]}>{text}</Text>
+  }, styles[variant], { textAlign: alignCenter ? "center" : "left", marginBottom: normalizeMeasure(marginBottom), opacity }]}>{text}</Text>
 }
 
 const styles = StyleSheet.create({

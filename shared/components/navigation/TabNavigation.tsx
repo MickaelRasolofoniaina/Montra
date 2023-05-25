@@ -35,14 +35,14 @@ export const MenuAction: React.FC = ({}) => {
         <CircleButton
           icon={<AntDesign name="downcircleo" size={24} color="#FFF" />}
           color={green}
-          onPress={() => navigate("transaction")}
+          onPress={() => navigate("transaction/income")}
           style={[styles.hide, addStyleWhen(show, styles.showOnLeft)]}
         />
   
         <CircleButton
           icon={<AntDesign name="upcircleo" size={24} color="#FFF" />}
           color={red}
-          onPress={() => navigate("transaction")}
+          onPress={() => navigate("transaction/expense")}
           style={[styles.hide, addStyleWhen(show, styles.showOnRight)]}
         />
         <CircleButton
@@ -115,7 +115,7 @@ export const TabNavigation: React.FC = () => {
         }}
       />
       <Tabs.Screen
-        name="transaction/index"
+        name="transaction"
         options={{
           title: "Transaction",
           tabBarIcon: ({ color, size }) => {

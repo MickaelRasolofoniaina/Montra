@@ -8,6 +8,8 @@ import { normalizeMeasure } from "utils/Style";
 
 import { Screen } from "shared/components/container/Screen";
 
+import { TransactionType } from "models/transaction.model";
+
 import TransactionForm from "../../components/transaction/TransactionForm";
 
 export const ManageExpense: React.FC = () => {
@@ -20,9 +22,10 @@ export const ManageExpense: React.FC = () => {
     >
       <Stack.Screen options={{
         title: "Expense",
-        headerBackVisible: true
+        headerBackVisible: true,
+        animation: "slide_from_bottom"
       }} />
-      <TransactionForm />
+      <TransactionForm transactionType={TransactionType.Out} />
     </Screen>
   );
 };

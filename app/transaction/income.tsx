@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet } from "react-native";
 import { Stack } from "expo-router";
 
-import { red } from "constants/Color";
+import { green } from "constants/Color";
 
 import { normalizeMeasure } from "utils/Style";
 
@@ -14,13 +14,17 @@ export const ManageExpense: React.FC = () => {
   return (
     <Screen
       style={styles.container}
-      bgColor={red}
+      bgColor={green}
       statusBarTheme="light"
       collapseEdge
     >
       <Stack.Screen options={{
-        title: "Expense",
-        headerBackVisible: true
+        title: "Income",
+        headerBackVisible: true,
+        headerStyle: {
+          backgroundColor: green
+        },
+        animation: "slide_from_bottom"
       }} />
       <TransactionForm />
     </Screen>

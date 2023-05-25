@@ -1,11 +1,8 @@
 import React, { useState } from "react";
-import { StyleSheet } from "react-native";
 
 import { Theme, white } from "constants/Color";
 
-import { normalizeMeasure } from "utils/Style";
-
-import { CATEGORIES_INPUT } from "models/transaction.model";
+import { CATEGORIES_INPUT, TransactionType } from "models/transaction.model";
 
 import { InputValue } from "definitions/type";
 
@@ -26,7 +23,11 @@ import { Button } from "shared/components/form/Button";
 import { StickyFooter } from "shared/components/container/StickyFooter";
 import { ScrollView } from "shared/components/container/ScrollView";
 
-export const TransactionForm: React.FC = () => {
+export interface TransactionFormProps {
+  transactionType?: TransactionType
+}
+
+export const TransactionForm: React.FC<TransactionFormProps> = ({ transactionType = TransactionType.In }) => {
   const [amount, setAmount] = useState("0");
   const [repeat, setRepeat] = useState(false);
   const [category, setCategory] = useState<InputValue>(null);
@@ -51,6 +52,7 @@ export const TransactionForm: React.FC = () => {
           color={white}
           text="How much?"
           marginBottom={2}
+          opacity={0.6}
         />
         <TextInput
           value={amount}
@@ -92,11 +94,5 @@ export const TransactionForm: React.FC = () => {
     </>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    paddingTop: normalizeMeasure(8),
-  },
-});
 
 export default TransactionForm;
