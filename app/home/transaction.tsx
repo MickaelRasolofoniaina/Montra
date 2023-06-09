@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet } from "react-native";
-import { Stack } from "expo-router";
+import { Stack, useRouter } from "expo-router";
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 
 import { black, purple100 } from "constants/Color";
@@ -49,6 +49,8 @@ const TRANSACTION_LIST_YESTERDAY = [
 ];
 
 export const Transaction: React.FC = () => {
+  const router = useRouter();
+
   return (
     <Screen bgColor="#FFF" statusBarTheme="dark">
       <Stack.Screen
@@ -73,7 +75,7 @@ export const Transaction: React.FC = () => {
           onPress={() => {}}
         />
       </HeaderContainer>
-      <ReportButton onPress={() => {}} />
+      <ReportButton onPress={() => router.replace("transaction/report")} />
       <TransactionList items={TRANSACTION_LIST_TODAY} title="Today" />
       <TransactionList items={TRANSACTION_LIST_YESTERDAY} title="Yesterday" />
     </Screen>

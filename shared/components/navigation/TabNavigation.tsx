@@ -92,7 +92,6 @@ const styles = StyleSheet.create({
 export const TabNavigation: React.FC = () => {
   return (
     <Tabs
-      initialRouteName="home/index"
       screenOptions={{
         headerShown: false,
         tabBarStyle: { borderTopWidth: 0 },
@@ -106,7 +105,7 @@ export const TabNavigation: React.FC = () => {
       }}
     >
       <Tabs.Screen
-        name="home/index"
+        name="index"
         options={{
           title: "Home",
           tabBarIcon: ({ color, size }) => {
@@ -130,7 +129,7 @@ export const TabNavigation: React.FC = () => {
         }}
       />
       <Tabs.Screen
-        name="action/index"
+        name="action"
         options={{
           tabBarLabel: () => null,
           tabBarButton: () => {
@@ -139,7 +138,7 @@ export const TabNavigation: React.FC = () => {
         }}
       />
       <Tabs.Screen
-        name="budget/index"
+        name="budget"
         options={{
           title: "Budget",
           tabBarIcon: ({ color, size }) => {
@@ -148,7 +147,7 @@ export const TabNavigation: React.FC = () => {
         }}
       />
       <Tabs.Screen
-        name="profile/index"
+        name="profile"
         options={{
           title: "Profile",
           tabBarIcon: ({ color, size }) => {

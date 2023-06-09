@@ -1,6 +1,7 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
+import { Stack } from "expo-router";
 
 import { bisque, black100, black200, green, grey, red } from "constants/Color";
 
@@ -60,6 +61,7 @@ export const Home: React.FC<HomeProps> = ({}) => {
 
   return (
     <Screen statusBarTheme="dark" bgColor={bisque} collapseEdge>
+      <Stack.Screen options={{ headerShown: false }} />
       <View style={styles.container}>
         <SpaceContent style={styles.balance}>
           <Typography

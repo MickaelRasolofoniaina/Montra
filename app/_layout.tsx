@@ -1,11 +1,7 @@
-import { useEffect, useCallback } from "react";
 import { useFonts } from "expo-font";
-import * as SplashScreen from "expo-splash-screen";
-import { View } from "react-native";
+import { SplashScreen, Stack } from "expo-router";
 
-import { TabNavigation } from "shared/components/navigation/TabNavigation";
-
-const HomeLayout: React.FC = () => {
+const AppLayout: React.FC = () => {
   const [fontsLoaded] = useFonts({
     "Inter-Black": require("../assets/fonts/inter/Inter-Black.ttf"),
     "Inter-Medium": require("../assets/fonts/inter/Inter-Medium.ttf"),
@@ -14,29 +10,13 @@ const HomeLayout: React.FC = () => {
     "Inter-SemiBold": require("../assets/fonts/inter/Inter-SemiBold.ttf"),
   });
 
-  const onLayoutRootView = useCallback(async () => {
-    if (fontsLoaded) {
-      await SplashScreen.hideAsync();
-    }
-  }, [fontsLoaded]);
-
-  useEffect(() => {
-    async function prepare() {
-      await SplashScreen.preventAutoHideAsync();
-    }
-
-    prepare();
-  }, []);
-
-  if (!fontsLoaded) {
-    return null;
+  if(!fontsLoaded) {
+    return <SplashScreen />;
   }
-
+  
   return (
-    <View onLayout={onLayoutRootView} style={{ flex: 1 }}>
-      <TabNavigation />
-    </View>
+    <Stack />
   );
 };
 
-export default HomeLayout;
+export default AppLayout;
