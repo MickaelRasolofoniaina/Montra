@@ -2,20 +2,20 @@ import React from "react";
 import { View, StyleSheet } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 
-import { bisque, black100, black200, green, grey, red } from "constants/Color";
+import { bisque, black100, black200, green, grey, red } from "constants/color";
 
-import { normalizeMeasure } from "utils/Style";
+import { normalizeMeasure } from "utils/style";
 
 import { TransactionCategory, TransactionType } from "models/transaction.model";
 import {
   Typography,
   TypoVariant,
-} from "shared/components/typo/Typography";
-import { Screen } from "shared/components/container/Screen";
-import { Badge } from "shared/components/card/Badge";
-import { Tab } from "shared/components/other/Tab";
-import { TransactionList } from "shared/components/transaction/TransactionList";
-import { SpaceContent } from "shared/components/container/SpaceContent";
+} from "components/typo/typography";
+import { Screen } from "components/container/screen";
+import { Badge } from "components/card/badge";
+import { Tab } from "components/other/tab";
+import { TransactionList } from "components/transaction/transactionList";
+import { SpaceContent } from "components/container/spaceContent";
 
 const TRANSACTION_FILTER = [
   {

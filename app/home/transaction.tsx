@@ -3,16 +3,16 @@ import { StyleSheet } from "react-native";
 import { Stack, useRouter } from "expo-router";
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 
-import { black, purple100 } from "constants/Color";
+import { black, purple100 } from "constants/color";
 
 import { TransactionCategory, TransactionType } from "models/transaction.model";
 
-import { Screen } from "shared/components/container/Screen";
-import { HeaderContainer } from "shared/components/container/Container";
-import { ButtonIcon, SimpleButton } from "shared/components/form/Button";
-import { TransactionList } from "shared/components/transaction/TransactionList";
+import { Screen } from "components/container/screen";
+import { HeaderContainer } from "components/container/container";
+import { ButtonIcon, SimpleButton } from "components/form/button";
+import { TransactionList } from "components/transaction/transactionList";
 
-import { ReportButton } from "components/transaction/ReportButton";
+import { ReportButton } from "components/transaction/reportButton";
 
 const TRANSACTION_LIST_TODAY = [
   {
@@ -75,7 +75,7 @@ export const Transaction: React.FC = () => {
           onPress={() => {}}
         />
       </HeaderContainer>
-      <ReportButton onPress={() => router.replace("transaction/report")} />
+      <ReportButton onPress={() => router.replace("transaction")} />
       <TransactionList items={TRANSACTION_LIST_TODAY} title="Today" />
       <TransactionList items={TRANSACTION_LIST_YESTERDAY} title="Yesterday" />
     </Screen>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { Theme, white } from "constants/Color";
+import { Theme, white } from "constants/color";
 
 import { CATEGORIES_INPUT, TransactionType } from "models/transaction.model";
 
@@ -9,19 +9,19 @@ import { InputValue } from "definitions/type";
 import {
   Typography,
   TypoVariant,
-} from "shared/components/typo/Typography";
+} from "components/typo/typography";
 import {
   TextInput,
   TextInputVariant,
-} from "shared/components/form/TextInput";
-import { Card } from "shared/components/card/Card";
-import { SpaceContent } from "shared/components/container/SpaceContent";
-import { SelectInput } from "shared/components/form/SelectInput";
-import { FileInput } from "shared/components/form/FileInput";
-import { Switch } from "shared/components/form/Switch";
-import { Button } from "shared/components/form/Button";
-import { StickyFooter } from "shared/components/container/StickyFooter";
-import { ScrollView } from "shared/components/container/ScrollView";
+} from "components/form/textInput";
+import { Card } from "components/card/card";
+import { SpaceContent } from "components/container/spaceContent";
+import { SelectInput } from "components/form/selectInput";
+import { FileInput } from "components/form/fileInput";
+import { Switch } from "components/form/switch";
+import { Button } from "components/form/button";
+import { StickyFooter } from "components/container/stickyFooter";
+import { ScrollView } from "components/container/scrollView";
 
 export interface TransactionFormProps {
   transactionType?: TransactionType

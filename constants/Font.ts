@@ -1,4 +1,4 @@
-import { normalizeMeasure } from "utils/Style"
+import { normalizeMeasure } from "utils/style";
 
 export const fontFamily = {
   bold: "Inter-Bold",

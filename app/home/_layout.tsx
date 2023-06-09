@@ -1,6 +1,6 @@
 import { Stack } from "expo-router";
 
-import { TabNavigation } from "shared/components/navigation/TabNavigation";
+import { TabNavigation } from "components/navigation/tabNavigation";
 
 const HomeLayout: React.FC = () => {
   return (

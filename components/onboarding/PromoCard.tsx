@@ -1,11 +1,11 @@
 import React from "react";
 import { View, Text, StyleSheet, Image, ImageSourcePropType } from "react-native";
 
-import { fontFamily, fontSize } from "constants/Font";
-import { black, grey } from "constants/Color";
-import { relativeToHeight } from "constants/Layout";
+import { fontFamily, fontSize } from "constants/font";
+import { black, grey } from "constants/color";
+import { relativeToHeight } from "constants/layout";
 
-import { normalizeMeasure } from "utils/Style";
+import { normalizeMeasure } from "utils/style";
 
 export interface PromoCardProps {
   illustrationSrc: ImageSourcePropType;

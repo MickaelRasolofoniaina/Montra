@@ -1,6 +1,6 @@
 import { useFonts } from "expo-font";
 import { SplashScreen, Stack } from "expo-router";
-import Layout from "shared/components/container/Layout";
+import Layout from "components/container/layout";
 
 const AppLayout: React.FC = () => {
   const [fontsLoaded] = useFonts({

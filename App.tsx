@@ -3,7 +3,7 @@ import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import { View } from 'react-native';
 
-import { TabNavigation } from 'shared/components/navigation/TabNavigation';
+import { TabNavigation } from 'components/navigation/tabNavigation';
 
 export default function App() {
   

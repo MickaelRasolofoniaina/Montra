@@ -2,15 +2,15 @@ import React from "react";
 import { StyleSheet } from "react-native";
 import { Stack } from "expo-router";
 
-import { red } from "constants/Color";
+import { red } from "constants/color";
 
-import { normalizeMeasure } from "utils/Style";
+import { normalizeMeasure } from "utils/style";
 
-import { Screen } from "shared/components/container/Screen";
+import { Screen } from "components/container/screen";
 
 import { TransactionType } from "models/transaction.model";
 
-import TransactionForm from "../../components/transaction/TransactionForm";
+import TransactionForm from "../../components/transaction/transactionForm";
 
 export const ManageExpense: React.FC = () => {
   return (

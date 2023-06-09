@@ -1,5 +1,5 @@
 import { Dimensions } from "react-native";
-import { normalizeMeasure } from "utils/Style";
+import { normalizeMeasure } from "utils/style";
 
 const windowDimension = Dimensions.get("window");
 

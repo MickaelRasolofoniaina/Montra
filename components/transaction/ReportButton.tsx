@@ -1,10 +1,10 @@
 import { TouchableOpacity, StyleSheet, Text } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 
-import { normalizeMeasure } from "utils/Style";
+import { normalizeMeasure } from "utils/style";
 
-import { secondaryColor, purple100 } from "constants/Color";
-import { fontFamily } from "constants/Font";
+import { secondaryColor, purple100 } from "constants/color";
+import { fontFamily } from "constants/font";
 
 export interface ReportButtonProps {
   onPress: () => void;

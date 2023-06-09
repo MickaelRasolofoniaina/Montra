@@ -1,54 +1,65 @@
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Text } from "react-native";
 
-import { TypoVariant, Typography } from "shared/components/typo/Typography";
-import { Card, CardType } from "shared/components/card/Card";
+import { Card, CardType } from "components/card/card";
+import { TransactionCategoryCard } from "components/transaction/transactionCard";
 
-export interface ReportSummaryProps {
 
-}
+import { black200 } from "constants/color";
+import { fontFamily } from "constants/font";
 
-export const ReportSummary: React.FC<ReportSummaryProps> = ({ }) => {
+import { TransactionCategory } from "models/transaction.model";
 
+import { normalizeMeasure } from "utils/style";
+
+export interface ReportSummaryProps {}
+
+export const ReportSummary: React.FC<ReportSummaryProps> = ({}) => {
   return (
     <View style={styles.container}>
-      <Typography
-        text="This Month"
-        variant={TypoVariant.title2}
-        size={24}
-        color="#FFF"
-        opacity={0.72}
-        alignCenter
-      />
+      <Text style={styles.title}>This Month</Text>
       <View>
-        <Typography
-          text="You Spend"
-          variant={TypoVariant.title1}
-          size={32}
-          color="#FFF"
-          alignCenter
-        />
-        <Typography
-          text="$332"
-          variant={TypoVariant.title1}
-          size={32}
-          color="#FFF"
-          alignCenter
-        />
+        <Text style={styles.subtitle}>You Spend</Text>
+        <Text style={styles.subtitle}>$332</Text>
       </View>
       <Card type={CardType.Full}>
-
+        <Text style={styles.cardTitle}>And your biggest</Text>
+        <Text style={styles.cardTitle}>spending is from</Text>
+        <TransactionCategoryCard type={TransactionCategory.Food} style={styles.transactionCard} />
       </Card>
     </View>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "space-between"
+    justifyContent: "space-between",
   },
-  card: {
-
+  title: {
+    fontFamily: fontFamily.semiBold,
+    fontSize: 24,
+    lineHeight: 29,
+    color: "#FFF",
+    textAlign: "center",
+    opacity: 0.72
+  },
+  subtitle: {
+    fontFamily: fontFamily.bold,
+    fontSize: 32,
+    lineHeight: 39,
+    textAlign: "center",
+    color: "#FFF"
+  },
+  cardTitle: {
+    fontFamily: fontFamily.semiBold,
+    fontSize: 24,
+    lineHeight: 29,
+    textAlign: "center",
+    color: black200
+  },
+  transactionCard: {
+    alignSelf: "center",
+    marginTop: normalizeMeasure(1)
   }
 });
 
