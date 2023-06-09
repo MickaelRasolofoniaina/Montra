@@ -8,7 +8,7 @@ import { normalizeMeasure } from "utils/style";
 
 import { Screen } from "components/container/screen";
 
-import TransactionForm from "../../components/transaction/transactionForm";
+import TransactionForm from "components/transaction/transactionForm";
 
 export const ManageExpense: React.FC = () => {
   return (

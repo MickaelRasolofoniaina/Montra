@@ -7,15 +7,13 @@ module.exports = function(api) {
         "module-resolver",
         {
           alias: {
-            modules: "./modules",
-            models: "./models",
-            definitions: "./definitions",
-            constants: "./constants",
-            components: "./components",
-            utils: "./utils",
-            assets: "./assets",
-            images: "./images",
-            shared: "./shared"
+            models: "./src/models",
+            definitions: "./src/definitions",
+            constants: "./src/constants",
+            components: "./src/components",
+            utils: "./src/utils",
+            assets: "./src/assets",
+            images: "./src/assets/images"
           },
         }
       ],

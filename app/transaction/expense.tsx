@@ -10,7 +10,7 @@ import { Screen } from "components/container/screen";
 
 import { TransactionType } from "models/transaction.model";
 
-import TransactionForm from "../../components/transaction/transactionForm";
+import TransactionForm from "components/transaction/transactionForm";
 
 export const ManageExpense: React.FC = () => {
   return (
