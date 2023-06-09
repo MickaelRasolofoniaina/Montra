@@ -1,5 +1,6 @@
 import { useFonts } from "expo-font";
 import { SplashScreen, Stack } from "expo-router";
+import Layout from "shared/components/container/Layout";
 
 const AppLayout: React.FC = () => {
   const [fontsLoaded] = useFonts({
@@ -15,7 +16,7 @@ const AppLayout: React.FC = () => {
   }
   
   return (
-    <Stack />
+    <Layout headerBackgroundColor="#FFF" />
   );
 };
 
