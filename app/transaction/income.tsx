@@ -17,6 +17,7 @@ export const Income: React.FC = () => {
       bgColor={green}
       statusBarTheme="light"
       collapseEdge
+      collapseBottom
     >
       <Stack.Screen options={{
         title: "Income",

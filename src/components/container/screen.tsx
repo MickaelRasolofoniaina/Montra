@@ -10,7 +10,8 @@ type ScreenProps = ContainerProps & {
   statusBarTheme: "light" | "dark",
   bgColor: string,
   notSafeView?: React.ReactNode,
-  collapseEdge?: boolean
+  collapseEdge?: boolean;
+  collapseBottom?: boolean;
 }
 
 export const Screen: React.FC<ScreenProps> = ({
@@ -19,12 +20,13 @@ export const Screen: React.FC<ScreenProps> = ({
   children,
   notSafeView,
   style,
-  collapseEdge
+  collapseEdge = false,
+  collapseBottom = false
 }) => {
   return (
     <View style={[styles.container, { backgroundColor: bgColor }, style]}>
       <StatusBar style={statusBarTheme} />
-      <SafeArea removeHorizontalSpacing={collapseEdge}>
+      <SafeArea removeHorizontalSpacing={collapseEdge} collapseBottom={collapseBottom}>
         {children}
       </SafeArea>
       {notSafeView}
