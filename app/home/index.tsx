@@ -60,7 +60,7 @@ export const Home: React.FC<HomeProps> = ({}) => {
   const onTrasactionFilterClick = () => {};
 
   return (
-    <Screen statusBarTheme="dark" bgColor={bisque} collapseEdge>
+    <Screen statusBarTheme="dark" bgColor={bisque} collapseEdge collapseBottom>
       <Stack.Screen options={{ headerShown: false }} />
       <View style={styles.container}>
         <SpaceContent style={styles.balance}>
