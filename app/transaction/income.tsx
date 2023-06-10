@@ -10,7 +10,7 @@ import { Screen } from "components/container/screen";
 
 import TransactionForm from "components/transaction/transactionForm";
 
-export const ManageExpense: React.FC = () => {
+export const Income: React.FC = () => {
   return (
     <Screen
       style={styles.container}
@@ -23,7 +23,6 @@ export const ManageExpense: React.FC = () => {
         headerStyle: {
           backgroundColor: green
         },
-        animation: "slide_from_bottom"
       }} />
       <TransactionForm />
     </Screen>
@@ -32,8 +31,9 @@ export const ManageExpense: React.FC = () => {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     paddingTop: normalizeMeasure(8),
   },
 });
 
-export default ManageExpense;
+export default Income;

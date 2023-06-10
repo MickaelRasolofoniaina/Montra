@@ -14,6 +14,7 @@ export interface ReportSummaryProps {
   period: string;
   title: string;
   amount: string;
+  totalAmount: string;
   firstSubtitle: string;
   secondSubtitle: string;
   category: TransactionCategory;
@@ -23,6 +24,7 @@ export const ReportSummary: React.FC<ReportSummaryProps> = ({
   period,
   title,
   amount,
+  totalAmount,
   firstSubtitle,
   secondSubtitle,
   category,
@@ -32,7 +34,7 @@ export const ReportSummary: React.FC<ReportSummaryProps> = ({
       <Text style={styles.title}>{period}</Text>
       <View>
         <Text style={styles.subtitle}>{title}</Text>
-        <Text style={styles.subtitle}>{amount}</Text>
+        <Text style={styles.subtitle}>{totalAmount}</Text>
       </View>
       <Card type={CardType.Full}>
         <Text style={styles.cardTitle}>
@@ -44,6 +46,7 @@ export const ReportSummary: React.FC<ReportSummaryProps> = ({
           type={category}
           style={styles.transactionCard}
         />
+        <Text style={styles.amount}>{amount}</Text>
       </Card>
     </View>
   );
@@ -78,8 +81,15 @@ const styles = StyleSheet.create({
   },
   transactionCard: {
     alignSelf: "center",
-    marginTop: normalizeMeasure(1),
+    marginVertical: normalizeMeasure(1),
   },
+  amount: {
+    fontFamily: fontFamily.medium,
+    fontSize: 36,
+    lineHeight: 43,
+    textAlign: "center",
+    color: black200
+  }
 });
 
 export default ReportSummary;

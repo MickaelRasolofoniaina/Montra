@@ -62,7 +62,7 @@ export const TransactionForm: React.FC<TransactionFormProps> = ({ transactionTyp
           placeholder=""
         />
       </SpaceContent>
-      <Card>
+      <Card style={{ flex: 1 }}>
         <SpaceContent style={{ flex: 1 }}>
           <ScrollView>
             <SelectInput

@@ -3,7 +3,8 @@ import { StatusBar } from "expo-status-bar";
 import { View, StyleSheet } from "react-native";
 
 import { SafeArea } from "components/container/safeArea";
-import { ContainerProps } from "components/props/generic";
+
+import { ContainerProps } from "models/props.model";
 
 type ScreenProps = ContainerProps & {
   statusBarTheme: "light" | "dark",

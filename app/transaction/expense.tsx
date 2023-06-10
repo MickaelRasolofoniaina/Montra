@@ -12,7 +12,7 @@ import { TransactionType } from "models/transaction.model";
 
 import TransactionForm from "components/transaction/transactionForm";
 
-export const ManageExpense: React.FC = () => {
+export const Expense: React.FC = () => {
   return (
     <Screen
       style={styles.container}
@@ -24,8 +24,7 @@ export const ManageExpense: React.FC = () => {
         title: "Expense",
         headerStyle: {
           backgroundColor: red
-        },
-        animation: "slide_from_bottom"
+        }
       }} />
       <TransactionForm transactionType={TransactionType.Out} />
     </Screen>
@@ -38,4 +37,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ManageExpense;
+export default Expense;

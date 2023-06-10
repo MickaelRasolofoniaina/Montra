@@ -1,15 +1,15 @@
 import React from "react";
-import { StyleSheet, SafeAreaView, LayoutChangeEvent, View } from "react-native";
+import { StyleSheet, SafeAreaView, View } from "react-native";
 
 import { screenPaddingHorizontal, screenPaddingTop } from "constants/layout";
 
-import { ContainerProps } from "../props/generic";
+import { ContainerProps } from "models/props.model";
 
-export type SafeAreaProps = ContainerProps & { onLayout?: (event: LayoutChangeEvent) => void, removeHorizontalSpacing?: boolean}
+export type SafeAreaProps = ContainerProps & { removeHorizontalSpacing?: boolean}
 
-export const SafeArea: React.FC<SafeAreaProps> = ({ children, onLayout, removeHorizontalSpacing = false }) => {
+export const SafeArea: React.FC<SafeAreaProps> = ({ children, removeHorizontalSpacing = false }) => {
   return (
-    <SafeAreaView onLayout={onLayout} style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <View style={[styles.container, {
         paddingTop: screenPaddingTop,
         paddingHorizontal: removeHorizontalSpacing ? 0 : screenPaddingHorizontal

@@ -25,7 +25,7 @@ export const MenuAction: React.FC = ({}) => {
   };
 
   const navigate = (routeName: string) => {
-    router.replace(routeName);
+    router.push(routeName);
     toggleShow(false);
   };
 
