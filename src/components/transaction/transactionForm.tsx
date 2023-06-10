@@ -28,13 +28,18 @@ export interface TransactionFormProps {
 }
 
 export const TransactionForm: React.FC<TransactionFormProps> = ({ transactionType = TransactionType.In }) => {
-  const [amount, setAmount] = useState("0");
+  const [description, setDescription] = useState("");
+  const [amount, setAmount] = useState("");
   const [repeat, setRepeat] = useState(false);
   const [category, setCategory] = useState<InputValue>(null);
 
   const onAmountChange = (amount: string) => {
     setAmount(amount);
   };
+
+  const onDescriptionChange = (description: string) => {
+    setDescription(description);
+  }
 
   const onAttachementUploaded = (attachmentUri: string) => {};
 
@@ -59,7 +64,8 @@ export const TransactionForm: React.FC<TransactionFormProps> = ({ transactionTyp
           onChange={onAmountChange}
           type="number-pad"
           variant={TextInputVariant.Large}
-          placeholder=""
+          placeholder="0"
+          placeholderTextColor="#FFF"
         />
       </SpaceContent>
       <Card style={{ flex: 1 }}>
@@ -72,9 +78,9 @@ export const TransactionForm: React.FC<TransactionFormProps> = ({ transactionTyp
               value={category}
             />
             <TextInput
-              value={amount}
-              onChange={onAmountChange}
-              type="number-pad"
+              value={description}
+              onChange={onDescriptionChange}
+              type="default"
               variant={TextInputVariant.Normal}
               placeholder="Description"
             />
