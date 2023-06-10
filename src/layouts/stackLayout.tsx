@@ -17,7 +17,7 @@ export const StackLayout: React.FC<LayoutProps> =  ({ headerBackgroundColor }) =
       backgroundColor: headerBackgroundColor,
     },
     headerShadowVisible: false,
-    headerBackTitleVisible: false
+    headerTintColor: "#FFF"
   }} />;
 }
 
