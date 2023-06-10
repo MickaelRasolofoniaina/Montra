@@ -34,9 +34,7 @@ import {
   TransactionType,
 } from "models/transaction.model";
 
-import { Stylable } from "components/props/generic";
-
-import { ComponentStyle } from "types/form.type";
+import { Stylable } from "models/props.model";
 
 import { BadgeIcon } from "../card/badge";
 
@@ -44,14 +42,13 @@ export interface TransactionCardProps {
   transaction: Transaction;
 }
 
-const renderTransactionBadge = (category: TransactionCategory, style?: ComponentStyle) => {
+const renderTransactionBadge = (category: TransactionCategory ) => {
   switch (category) {
     case TransactionCategory.Shopping:
       return (
         <BadgeIcon
           icon={<Entypo name="shopping-basket" size={35} color={yellow} />}
           color={yellow20}
-          style={style}
         />
       );
     case TransactionCategory.Subscription:
@@ -61,7 +58,6 @@ const renderTransactionBadge = (category: TransactionCategory, style?: Component
             <MaterialIcons name="event-note" size={35} color={primaryColor} />
           }
           color={secondaryColor}
-          style={style}
         />
       );
     case TransactionCategory.Salary:
@@ -69,7 +65,6 @@ const renderTransactionBadge = (category: TransactionCategory, style?: Component
         <BadgeIcon
           icon={<MaterialIcons name="attach-money" size={35} color={green} />}
           color={green20}
-          style={style}
         />
       );
     case TransactionCategory.Transportation:
@@ -77,7 +72,6 @@ const renderTransactionBadge = (category: TransactionCategory, style?: Component
         <BadgeIcon
           icon={<FontAwesome5 name="car-side" size={35} color={blue} />}
           color={blue20}
-          style={style}
         />
       );
     case TransactionCategory.Vehicle:
@@ -85,7 +79,6 @@ const renderTransactionBadge = (category: TransactionCategory, style?: Component
         <BadgeIcon
           icon={<FontAwesome5 name="car" size={35} color={blue} />}
           color={blue20}
-          style={style}
         />
       );
     default:
@@ -99,7 +92,6 @@ const renderTransactionBadge = (category: TransactionCategory, style?: Component
             />
           }
           color={red20}
-          style={style}
         />
       );
   }
@@ -194,7 +186,7 @@ export interface TransactionCategoryCardProps extends Stylable {
 export const TransactionCategoryCard: React.FC<TransactionCategoryCardProps> = ({ type, style }) => {
   return (
     <View style={[cardStyles.container, style]}>
-      {renderTransactionBadge(type, cardStyles.badgeStyle)}
+      {renderTransactionBadge(type)}
       <Text style={cardStyles.label}>{type}</Text>
     </View>
   )

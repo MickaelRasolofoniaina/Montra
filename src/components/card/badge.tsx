@@ -5,7 +5,7 @@ import { fontFamily } from "constants/font";
 
 import { normalizeMeasure } from "utils/style";
 
-import { Stylable } from "components/props/generic";
+import { Stylable } from "models/props.model";
 
 export interface BadgeProps extends Stylable {
   title: string;
@@ -67,11 +67,6 @@ const styles = StyleSheet.create({
   },
 });
 
-export enum BadgeIconSize {
-  Small = "small",
-  Medium = "medium",
-}
-
 export interface BadgeIconProps extends Stylable {
   icon: React.ReactNode;
   color: string;
@@ -97,16 +92,9 @@ const badgeIconStyle = StyleSheet.create({
   container: {
     alignItems: "center",
     justifyContent: "center",
+    borderRadius: 16,
+    height: 60,
+    width: 60,
     padding: normalizeMeasure(1),
-  },
-  small: {
-    borderRadius: 16,
-    height: 60,
-    width: 60,
-  },
-  medium: {
-    borderRadius: 16,
-    height: 60,
-    width: 60,
-  },
+  }
 });
