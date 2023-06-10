@@ -22,7 +22,7 @@ import { fontFamily } from "constants/font";
 
 import { normalizeMeasure } from "utils/style";
 
-import { Stylable } from "components/props/generic";
+import { Stylable } from "models/props.model";
 
 export interface ButtonProps extends Stylable {
   label: string;

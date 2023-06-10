@@ -1,6 +1,7 @@
 import React from "react";
 
-import { ComponentStyle } from "definitions/type";
+import { ComponentStyle } from "types/style.type";
+
 export interface Stylable {
   style?: ComponentStyle;
 }

@@ -1,4 +1,4 @@
-import { MultipleInputData } from "definitions/type";
+import { MultipleInputData } from "types/form.type";
 
 export enum TransactionCategory {
   Shopping = "shopping",

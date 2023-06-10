@@ -8,12 +8,13 @@ module.exports = function(api) {
         {
           alias: {
             models: "./src/models",
-            definitions: "./src/definitions",
+            types: "./src/types",
             constants: "./src/constants",
             components: "./src/components",
             utils: "./src/utils",
             assets: "./src/assets",
-            images: "./src/assets/images"
+            images: "./src/assets/images",
+            layouts: "./src/layouts"
           },
         }
       ],

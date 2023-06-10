@@ -4,7 +4,7 @@ import { Theme, white } from "constants/color";
 
 import { CATEGORIES_INPUT, TransactionType } from "models/transaction.model";
 
-import { InputValue } from "definitions/type";
+import { InputValue } from "types/form.type";
 
 import {
   Typography,

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Text, TouchableOpacity, StyleSheet } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 
-import { InputValue, MultipleInputData } from "definitions/type";
+import { InputValue, MultipleInputData } from "types/form.type";
 
 import { normalizeMeasure } from "utils/style";
 

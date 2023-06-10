@@ -36,7 +36,7 @@ import {
 
 import { Stylable } from "components/props/generic";
 
-import { ComponentStyle } from "definitions/type";
+import { ComponentStyle } from "types/form.type";
 
 import { BadgeIcon } from "../card/badge";
 

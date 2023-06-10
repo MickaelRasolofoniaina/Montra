@@ -13,7 +13,7 @@ import {
 } from "components/typo/typography";
 import { Screen } from "components/container/screen";
 import { Badge } from "components/card/badge";
-import { Tab } from "components/other/tab";
+import { Tab } from "components/container/tab";
 import { TransactionList } from "components/transaction/transactionList";
 import { SpaceContent } from "components/container/spaceContent";
 

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 
-import { InputValue, MultipleInputData } from "definitions/type";
+import { InputValue, MultipleInputData } from "types/form.type";
 
 import { grey200, grey, yellow } from "constants/color";
 import { fontFamily } from "constants/font";

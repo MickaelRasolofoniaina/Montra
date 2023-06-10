@@ -6,7 +6,7 @@ export interface LayoutProps {
   headerBackgroundColor: string;
 }
 
-export const Layout: React.FC<LayoutProps> =  ({ headerBackgroundColor }) => {
+export const StackLayout: React.FC<LayoutProps> =  ({ headerBackgroundColor }) => {
   return <Stack screenOptions={{
     headerTitleStyle: {
       fontFamily: fontFamily.bold,
@@ -20,4 +20,4 @@ export const Layout: React.FC<LayoutProps> =  ({ headerBackgroundColor }) => {
   }} />;
 }
 
-export default Layout;
+export default StackLayout;
