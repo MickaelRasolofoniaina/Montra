@@ -1,7 +1,7 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
 
-import { ContainerProps } from "components/props/generic";
+import { ContainerProps } from "models/props.model";
 
 import { normalizeMeasure, addStyleWhen } from "utils/style";
 
