@@ -27,13 +27,13 @@ export const TransactionSummary: React.FC<TransactionSummaryProps> = ({
 }) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>{period}</Text>
+      <Text style={styles.period}>{period}</Text>
       <View>
-        { titles.map((title, index) => <Text style={styles.subtitle} key={index}>{title}</Text>)}
+        { titles.map((title, index) => <Text style={styles.title} key={index}>{title}</Text>)}
       </View>
       <Card type={CardType.Full}>
         <View>
-        { subtitles.map((subtitle, index) => <Text style={styles.cardTitle} key={index}>{subtitle}</Text>)}
+        { subtitles.map((subtitle, index) => <Text style={styles.subtitle} key={index}>{subtitle}</Text>)}
         </View>
         <TransactionCategoryCard
           type={category}
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "space-between",
   },
-  title: {
+  period: {
     fontFamily: fontFamily.semiBold,
     fontSize: 24,
     lineHeight: 29,
@@ -58,14 +58,14 @@ const styles = StyleSheet.create({
     textAlign: "center",
     opacity: 0.72,
   },
-  subtitle: {
+  title: {
     fontFamily: fontFamily.bold,
     fontSize: 32,
     lineHeight: 39,
     textAlign: "center",
     color: "#FFF",
   },
-  cardTitle: {
+  subtitle: {
     fontFamily: fontFamily.semiBold,
     fontSize: 24,
     lineHeight: 29,
