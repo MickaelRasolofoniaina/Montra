@@ -1,11 +1,11 @@
-import { MultipleInputData } from "types/form.type";
+import { MultipleInputData } from "models/form.model";
 
 export enum TransactionCategory {
   Shopping = "shopping",
   Subscription = "subscription",
   Food = "food",
   Salary = "salary",
-  Transportation = "transportation",
+  Transportation = "transport",
   Vehicle = "vehicle"
 }
 

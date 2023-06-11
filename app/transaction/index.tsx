@@ -5,18 +5,19 @@ import PagerView, {
   PagerViewOnPageSelectedEvent,
 } from "react-native-pager-view";
 
-import { red, green } from "constants/color";
+import { red, green, purple100 } from "constants/color";
 
 import { normalizeMeasure } from "utils/style";
+
+import { TransactionCategory } from "models/transaction.model";
 
 import { Screen } from "components/container/screen";
 import TransactionSummary from "components/transaction/transactionSummary";
 import { Stepper } from "components/progress/stepper";
-
-import { TransactionCategory } from "models/transaction.model";
+import { BudgetSummary } from "components/transaction/budgetSummary";
 
 export const Report: React.FC = () => {
-  const theme = [red, green];
+  const theme = [red, green, purple100];
 
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -59,6 +60,13 @@ export const Report: React.FC = () => {
             subtitles={["Your biggest", "income is from"]}
             amount="$5000"
             category={TransactionCategory.Salary}
+          />
+        </View>
+        <View key={2}>
+          <BudgetSummary  
+            period="This Month"
+            titles={["2 of 12 Budget", "exceeds the limit"]}
+            categories={[TransactionCategory.Food, TransactionCategory.Transportation, TransactionCategory.Shopping]}
           />
         </View>
       </PagerView>
