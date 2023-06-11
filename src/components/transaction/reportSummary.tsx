@@ -12,36 +12,29 @@ import { normalizeMeasure } from "utils/style";
 
 export interface ReportSummaryProps {
   period: string;
-  title: string;
+  titles: string[];
   amount: string;
-  totalAmount: string;
-  firstSubtitle: string;
-  secondSubtitle: string;
+  subtitles: string[];
   category: TransactionCategory;
 }
 
 export const ReportSummary: React.FC<ReportSummaryProps> = ({
   period,
-  title,
+  titles,
   amount,
-  totalAmount,
-  firstSubtitle,
-  secondSubtitle,
+  subtitles,
   category,
 }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{period}</Text>
       <View>
-        <Text style={styles.subtitle}>{title}</Text>
-        <Text style={styles.subtitle}>{totalAmount}</Text>
+        { titles.map((title, index) => <Text style={styles.subtitle} key={index}>{title}</Text>)}
       </View>
       <Card type={CardType.Full}>
-        <Text style={styles.cardTitle}>
-          <Text>{firstSubtitle}</Text>
-          <Text>{"\n"}</Text>
-          <Text>{secondSubtitle}</Text>
-        </Text>
+        <View>
+        { subtitles.map((subtitle, index) => <Text style={styles.cardTitle} key={index}>{subtitle}</Text>)}
+        </View>
         <TransactionCategoryCard
           type={category}
           style={styles.transactionCard}

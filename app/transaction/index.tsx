@@ -46,22 +46,18 @@ export const Report: React.FC = () => {
         <View key={0}>
           <ReportSummary
             period="This Month"
-            title="You Spend"
-            totalAmount="$332"
+            titles={["You Spend", "$332"]}
+            subtitles={["And your biggest", "spending is from"]}
             amount="$120"
-            firstSubtitle="And your biggest"
-            secondSubtitle="spending is from"
             category={TransactionCategory.Food}
           />
         </View>
         <View key={1}>
           <ReportSummary
             period="This Month"
-            title="You Earned"
-            totalAmount="$60000"
+            titles={["You Earned", "$60000"]}
+            subtitles={["Your biggest", "income is from"]}
             amount="$5000"
-            firstSubtitle="Your biggest"
-            secondSubtitle="income is from"
             category={TransactionCategory.Salary}
           />
         </View>

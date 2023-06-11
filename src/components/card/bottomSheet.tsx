@@ -3,7 +3,7 @@ import { View, StyleSheet } from "react-native";
 import Animated, { useAnimatedStyle, useSharedValue, withTiming, useAnimatedGestureHandler, runOnJS } from "react-native-reanimated";
 import { PanGestureHandler } from "react-native-gesture-handler";
 
-import { ContainerProps } from "components/props/generic";
+import { ContainerProps } from "models/props.model";
 
 import { purple } from "constants/color";
 import { relativeToHeight } from "constants/layout";
