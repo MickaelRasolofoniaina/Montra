@@ -2,11 +2,13 @@ import { View, StyleSheet, Text } from "react-native";
 
 import { TransactionCategory } from "models/transaction.model";
 
+import { Theme } from "constants/color";
 import { fontFamily } from "constants/font";
 
 import { normalizeMeasure } from "utils/style";
 
 import { TransactionCategoryCard } from "./transactionCard";
+import { Button } from "components/form/button";
 
 export interface BudgetSummaryProps {
   period: string;
@@ -15,6 +17,10 @@ export interface BudgetSummaryProps {
 }
 
 export const BudgetSummary: React.FC<BudgetSummaryProps> = ({ period, titles, categories }) => {
+
+  const onSeeFullDetailClick = () => {
+
+  }
 
   return (
     <View style={styles.container}>
@@ -27,13 +33,14 @@ export const BudgetSummary: React.FC<BudgetSummaryProps> = ({ period, titles, ca
           { categories.map((category, index) => <TransactionCategoryCard key={index} type={category} style={styles.card} />)}
         </View>
       </View>
+      <Button label="See the full detail" onPress={onSeeFullDetailClick} theme={Theme.default} />
     </View>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
-    flexBasis: "70%",
+    flex: 1,
     justifyContent: "space-between"
   },
   period: {
