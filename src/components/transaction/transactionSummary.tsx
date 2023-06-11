@@ -10,7 +10,7 @@ import { TransactionCategory } from "models/transaction.model";
 
 import { normalizeMeasure } from "utils/style";
 
-export interface ReportSummaryProps {
+export interface TransactionSummaryProps {
   period: string;
   titles: string[];
   amount: string;
@@ -18,7 +18,7 @@ export interface ReportSummaryProps {
   category: TransactionCategory;
 }
 
-export const ReportSummary: React.FC<ReportSummaryProps> = ({
+export const TransactionSummary: React.FC<TransactionSummaryProps> = ({
   period,
   titles,
   amount,
@@ -85,4 +85,6 @@ const styles = StyleSheet.create({
   }
 });
 
-export default ReportSummary;
+//export interface 
+
+export default TransactionSummary;

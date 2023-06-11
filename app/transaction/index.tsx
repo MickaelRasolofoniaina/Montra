@@ -10,7 +10,7 @@ import { red, green } from "constants/color";
 import { normalizeMeasure } from "utils/style";
 
 import { Screen } from "components/container/screen";
-import ReportSummary from "components/transaction/reportSummary";
+import TransactionSummary from "components/transaction/transactionSummary";
 import { Stepper } from "components/progress/stepper";
 
 import { TransactionCategory } from "models/transaction.model";
@@ -44,7 +44,7 @@ export const Report: React.FC = () => {
         pageMargin={normalizeMeasure(2)}
       >
         <View key={0}>
-          <ReportSummary
+          <TransactionSummary
             period="This Month"
             titles={["You Spend", "$332"]}
             subtitles={["And your biggest", "spending is from"]}
@@ -53,7 +53,7 @@ export const Report: React.FC = () => {
           />
         </View>
         <View key={1}>
-          <ReportSummary
+          <TransactionSummary
             period="This Month"
             titles={["You Earned", "$60000"]}
             subtitles={["Your biggest", "income is from"]}
