@@ -95,7 +95,7 @@ export const Home: React.FC<HomeProps> = ({}) => {
           </View>
         </SpaceContent>
         <SpaceContent style={styles.transaction}>
-          <Typography
+          {/* <Typography
             text="Spend frequency"
             variant={TypoVariant.title3}
             color={black200}
@@ -105,7 +105,7 @@ export const Home: React.FC<HomeProps> = ({}) => {
             items={TRANSACTION_FILTER}
             activeIndex={0}
             onClick={onTrasactionFilterClick}
-          />
+          /> */}
           <TransactionList items={TRANSACTION_LIST} title="Recent transaction" />
         </SpaceContent>
       </View>

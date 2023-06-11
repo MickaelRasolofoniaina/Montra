@@ -9,6 +9,7 @@ import { normalizeMeasure } from "utils/style";
 
 import { TransactionCategoryCard } from "./transactionCard";
 import { Button } from "components/form/button";
+import { useRouter } from "expo-router";
 
 export interface BudgetSummaryProps {
   period: string;
@@ -18,8 +19,10 @@ export interface BudgetSummaryProps {
 
 export const BudgetSummary: React.FC<BudgetSummaryProps> = ({ period, titles, categories }) => {
 
-  const onSeeFullDetailClick = () => {
+  const router = useRouter();
 
+  const onSeeFullDetailClick = () => {
+    router.replace("home");
   }
 
   return (
