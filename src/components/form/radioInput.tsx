@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 
-import { InputValue, MultipleInputData } from "types/form.type";
+import { InputValue } from "types/form.type";
+
+import { MultipleInputData } from "models/form.model";
 
 import { grey200, grey, yellow } from "constants/color";
 import { fontFamily } from "constants/font";
@@ -16,10 +18,22 @@ export interface RadioItemProps {
   marginBottom?: number;
 }
 
-export const RadioItem: React.FC<RadioItemProps> = ({ label, value, onSelected, active, marginBottom = 2 }) => {
+export const RadioItem: React.FC<RadioItemProps> = ({
+  label,
+  value,
+  onSelected,
+  active,
+  marginBottom = 2,
+}) => {
   return (
-    <TouchableOpacity onPress={() => onSelected(value)} style={[styles.container,{marginBottom: normalizeMeasure(marginBottom)}]}>
-      <View style={[styles.dot, addStyleWhen(active,styles.dotActive)]} />
+    <TouchableOpacity
+      onPress={() => onSelected(value)}
+      style={[
+        styles.container,
+        { marginBottom: normalizeMeasure(marginBottom) },
+      ]}
+    >
+      <View style={[styles.dot, addStyleWhen(active, styles.dotActive)]} />
       <Text style={styles.label}>{label}</Text>
     </TouchableOpacity>
   );
@@ -40,18 +54,18 @@ const styles = StyleSheet.create({
     borderColor: grey200,
     height: DOT_SIZE,
     width: DOT_SIZE,
-    marginRight: normalizeMeasure(1)
+    marginRight: normalizeMeasure(1),
   },
   dotActive: {
-    backgroundColor: yellow
+    backgroundColor: yellow,
   },
   label: {
     fontFamily: fontFamily.regular,
     fontSize: 16,
     lineHeight: 18,
     color: grey,
-    textTransform: "capitalize"
-  }
+    textTransform: "capitalize",
+  },
 });
 
 export interface RadioInputProps {
@@ -63,22 +77,27 @@ export interface RadioInputProps {
 export const RadioInput: React.FC<RadioInputProps> = ({
   items,
   onChange,
-  value
+  value,
 }) => {
-
   const [selectedValue, setSelectedValue] = useState<InputValue>(value);
 
   const handleValueChange = (value: InputValue, label: string) => {
     setSelectedValue(value);
     onChange(value, label);
-  }
+  };
 
   // No need to use FlatList or FlashList
   return (
     <View>
-      { items.map(({ label, value}) => (
-        <RadioItem label={label} value={value} onSelected={(value: InputValue) => handleValueChange(value, label)} active={value === selectedValue} />
+      {items.map(({ label, value }) => (
+        <RadioItem
+          key={value}
+          label={label}
+          value={value}
+          onSelected={(value: InputValue) => handleValueChange(value, label)}
+          active={value === selectedValue}
+        />
       ))}
     </View>
-  )
-}
+  );
+};

@@ -12,7 +12,7 @@ import { primaryColor, Theme } from "constants/color";
 
 import { addElevation, normalizeMeasure } from "utils/style";
 
-import { ContainerProps } from "components/props/generic";
+import { ContainerProps } from "models/props.model";
 
 import { Render } from "./render";
 import { Backdrop } from "./backdrop";
