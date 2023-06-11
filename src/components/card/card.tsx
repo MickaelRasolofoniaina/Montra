@@ -11,12 +11,13 @@ export enum CardType {
 }
 
 export interface CardProps extends ContainerProps {
-  type?: CardType
+  type?: CardType;
+  collapseeEdge?: boolean;
 }
 
-export const Card: React.FC<CardProps> = ({ children, style, type = CardType.Half }) => {
+export const Card: React.FC<CardProps> = ({ children, style, type = CardType.Half, collapseeEdge = false }) => {
   return (
-    <View style={[styles.container, style, addStyleWhen(type === CardType.Full, styles.full)]}>
+    <View style={[styles.container, style, addStyleWhen(type === CardType.Full, styles.full), addStyleWhen(collapseeEdge, styles.collapseEdge)]}>
       {children}
     </View>
   )
@@ -34,5 +35,10 @@ const styles = StyleSheet.create({
     borderBottomEndRadius: normalizeMeasure(4),
     borderBottomStartRadius: normalizeMeasure(4),
     paddingBottom: normalizeMeasure(3),
+  },
+  collapseEdge: {
+    paddingTop: 0,
+    paddingHorizontal: 0,
+    paddingBottom: 0
   }
 });
